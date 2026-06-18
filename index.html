@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>فوتینو</title>
+    
+    <!-- فونت Vazirmatn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- آیکون‌های فونت‌آسوم -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- هدر سایت -->
+    <header class="main-header">
+        
+        <!-- لایه پشتی برای افکت بلور پرچم ایران -->
+        <div class="header-bg-blur"></div>
+
+        <!-- [سمت راست در حالت RTL] - دکمه ارتباط با سازنده -->
+        <div class="header-left">
+            <button class="icon-btn" id="contact-btn" aria-label="ارتباط با سازنده">
+                <i class="fas fa-headset"></i>
+            </button>
+        </div>
+
+        <!-- وسط هدر - آیکون و نام برنامه -->
+        <div class="header-center">
+            <img class="worldcup" src="assets/worldcup.png" alt="جام جهانی" class="trophy-icon" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/2022_FIFA_World_Cup.svg/1200px-2022_FIFA_World_Cup.svg.png'">
+            <h1 class="app-title">فـوتـینو</h1>
+        </div>
+
+        <!-- [سمت چپ در حالت RTL] - دکمه تغییر تم -->
+        <div class="header-right">
+            <button class="icon-btn" id="theme-toggle" aria-label="تغییر تم">
+                <i class="fas fa-sun theme-icon"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- لیست مسابقات -->
+    <main id="match-list" class="match-container">
+        <!-- محتوا توسط جاوا‌اسکریپت تولید می‌شود -->
+    </main>
+
+    <!-- مودال (پنجره ارتباط با سازنده) -->
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>ارتباط با سازنده </h3>
+            <p>برای ارتباط با سازنده روی دکمه‌های زیر بزنید.</p>
+            <div class="modal-buttons">
+                <a href="https://t.me/w8i_7" target="_blank" class="modal-btn telegram-btn">
+                    <i class="fab fa-telegram-plane"></i> تلگرام: w8i_7
+                </a>
+                <a href="https://www.instagram.com/w8i_z" target="_blank" class="modal-btn instagram-btn">
+                    <i class="fab fa-instagram"></i> اینستاگرام: w8i_z
+                </a>
+            </div>
+            <button class="close-modal-btn" id="close-modal">بستن</button>
+        </div>
+    </div>
+
+    <!-- دکمه اسکرول به بالا -->
+    <button id="scroll-top-btn" class="scroll-top-btn" aria-label="بازگشت به بالا">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

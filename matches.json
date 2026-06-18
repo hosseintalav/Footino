@@ -1,0 +1,183 @@
+[
+  {
+    "date": "2026-06-19",
+    "time": "01:30",
+    "team1": "قطر",
+    "team1Image": "https://flagcdn.com/w80/qa.png",
+    "team2": "کانادا",
+    "team2Image": "https://flagcdn.com/w80/ca.png",
+    "league": "جام جهانی"
+  },
+  {
+    "date": "2026-06-19",
+    "time": "04:30",
+    "team1": "مکزیک",
+    "team1Image": "https://flagcdn.com/w80/mx.png",
+    "team2": "کره جنوبی",
+    "team2Image": "https://flagcdn.com/w80/kr.png",
+    "league": "جام جهانی"
+  },
+  {
+    "date": "2026-06-19",
+    "time": "22:30",
+    "team1": "آمریکا",
+    "team1Image": "https://flagcdn.com/w80/us.png",
+    "team2": "استرالیا",
+    "team2Image": "https://flagcdn.com/w80/au.png",
+    "league": "جام جهانی"
+  },
+  {
+    "date": "2026-06-20",
+    "time": "01:30",
+    "team1": "اسکاتلند",
+    "team1Image": "https://flagcdn.com/w80/gb-sct.png",
+    "team2": "مراکش",
+    "team2Image": "https://flagcdn.com/w80/ma.png",
+    "league": "جام جهانی"
+  },
+  {
+    "date": "2026-06-20",
+    "time": "04:00",
+    "team1": "برزیل",
+    "team1Image": "https://flagcdn.com/w80/br.png",
+    "team2": "هائیتی",
+    "team2Image": "https://flagcdn.com/w80/ht.png",
+    "league": "جام جهانی"
+  },
+  {
+    "date": "2026-06-20",
+    "time": "06:30",
+    "team1": "ترکیه",
+    "team1Image": "https://flagcdn.com/w80/tr.png",
+    "team2": "پاراگوئه",
+    "team2Image": "https://flagcdn.com/w80/py.png",
+    "league": "جام جهانی"
+  },
+  {
+    "date": "2026-06-20",
+    "time": "20:30",
+    "team1": "هلند",
+    "team1Image": "https://flagcdn.com/w80/nl.png",
+    "team2": "سوئد",
+    "team2Image": "https://flagcdn.com/w80/se.png",
+    "league": "جام جهانی"
+  },
+  {
+    "date": "2026-06-20",
+    "time": "23:30",
+    "team1": "آلمان",
+    "team1Image": "https://flagcdn.com/w80/de.png",
+    "team2": "ساحل عاج",
+    "team2Image": "https://flagcdn.com/w80/ci.png",
+    "league": "جام جهانی"
+  },
+  {
+    "date": "2026-06-21",
+    "time": "03:30",
+    "team1": "اکوادور",
+    "team1Image": "https://flagcdn.com/w80/ec.png",
+    "team2": "کوراسائو",
+    "team2Image": "https://flagcdn.com/w80/cw.png",
+    "league": "جام جهانی"
+  },
+  {
+    "date": "2026-06-21",
+    "time": "07:30",
+    "team1": "تونس",
+    "team1Image": "https://flagcdn.com/w80/tn.png",
+    "team2": "ژاپن",
+    "team2Image": "https://flagcdn.com/w80/jp.png",
+    "league": "جام جهانی"
+  },
+  {
+    "date": "2026-06-21",
+    "time": "19:30",
+    "team1": "اسپانیا",
+    "team1Image": "https://flagcdn.com/w80/es.png",
+    "team2": "عربستان",
+    "team2Image": "https://flagcdn.com/w80/sa.png",
+    "league": "جام جهانی"
+  },
+  {
+    "date": "2026-06-21",
+    "time": "22:30",
+    "team1": "بلژیک",
+    "team1Image": "https://flagcdn.com/w80/be.png",
+    "team2": "ایران",
+    "team2Image": "https://flagcdn.com/w80/ir.png",
+    "league": "جام جهانی"
+  },
+  {
+    "date": "2026-06-22",
+    "time": "01:30",
+    "team1": "اروگوئه",
+    "team1Image": "https://flagcdn.com/w80/uy.png",
+    "team2": "کیپ ورد",
+    "team2Image": "https://flagcdn.com/w80/cv.png",
+    "league": "جام جهانی"
+  },
+  {
+    "date": "2026-06-22",
+    "time": "04:30",
+    "team1": "نیوزیلند",
+    "team1Image": "https://flagcdn.com/w80/nz.png",
+    "team2": "مصر",
+    "team2Image": "https://flagcdn.com/w80/eg.png",
+    "league": "جام جهانی"
+  },
+  {
+    "date": "2026-06-22",
+    "time": "20:30",
+    "team1": "آرژانتین",
+    "team1Image": "https://flagcdn.com/w80/ar.png",
+    "team2": "اتریش",
+    "team2Image": "https://flagcdn.com/w80/at.png",
+    "league": "جام جهانی"
+  },
+  {
+    "date": "2026-06-23",
+    "time": "00:30",
+    "team1": "فرانسه",
+    "team1Image": "https://flagcdn.com/w80/fr.png",
+    "team2": "عراق",
+    "team2Image": "https://flagcdn.com/w80/iq.png",
+    "league": "جام جهانی"
+  },
+  {
+    "date": "2026-06-23",
+    "time": "03:30",
+    "team1": "نروژ",
+    "team1Image": "https://flagcdn.com/w80/no.png",
+    "team2": "سنگال",
+    "team2Image": "https://flagcdn.com/w80/sn.png",
+    "league": "جام جهانی"
+  },
+  {
+    "date": "2026-06-23",
+    "time": "06:30",
+    "team1": "اردن",
+    "team1Image": "https://flagcdn.com/w80/jo.png",
+    "team2": "الجزایر",
+    "team2Image": "https://flagcdn.com/w80/dz.png",
+    "league": "جام جهانی"
+  },
+  {
+    "date": "2026-06-23",
+    "time": "20:30",
+    "team1": "پرتغال",
+    "team1Image": "https://flagcdn.com/w80/pt.png",
+    "team2": "ازبکستان",
+    "team2Image": "https://flagcdn.com/w80/uz.png",
+    "league": "جام جهانی"
+  },
+ 
+  {
+    "date": "2026-06-23",
+    "time": "23:30",
+    "team1": "انگلیس",
+    "team1Image": "https://flagcdn.com/w80/gb-eng.png",
+    "team2": "غنا",
+    "team2Image": "https://flagcdn.com/w80/gh.png",
+    "league": "جام جهانی"
+  }
+]
