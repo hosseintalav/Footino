@@ -28,7 +28,7 @@ function getPersianDateLabel(dateStr) {
     return getPersianDayName(dateStr);
 }
 
-// --- 2. بارگذاری و رندر کردن مسابقات ---
+// --- 2. بارگذاری و رندر کردن مسابقات (با فیلتر تاریخ) ---
 async function loadMatches() {
     try {
         const response = await fetch('matches.json');
@@ -43,15 +43,23 @@ async function loadMatches() {
 function renderAllMatches() {
     matchListContainer.innerHTML = '';
 
-    if (allMatches.length === 0) {
+    // ---- فیلتر مسابقات گذشته ----
+    const today = new Date();
+    const todayStr = getDateString(today);
+    // فقط مسابقاتی که تاریخشان >= امروز باشد
+    const filteredMatches = allMatches.filter(match => match.date >= todayStr);
+
+    if (filteredMatches.length === 0) {
         matchListContainer.innerHTML = '<p style="text-align:center; color:#888; margin-top:50px;">هیچ مسابقه‌ای برای نمایش وجود ندارد.</p>';
         return;
     }
 
-    allMatches.sort((a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time));
+    // مرتب‌سازی بر اساس تاریخ و زمان
+    filteredMatches.sort((a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time));
 
+    // گروه‌بندی بر اساس تاریخ
     const groupedMatches = {};
-    allMatches.forEach(match => {
+    filteredMatches.forEach(match => {
         if (!groupedMatches[match.date]) groupedMatches[match.date] = [];
         groupedMatches[match.date].push(match);
     });
@@ -93,26 +101,44 @@ function renderAllMatches() {
     }
 }
 
-// --- 3. مدیریت تغییر تم ---
+// --- 3. مدیریت تغییر تم با ذخیره‌سازی در localStorage ---
 const themeToggleBtn = document.getElementById('theme-toggle');
 const themeIcon = document.querySelector('.theme-icon');
 
+// تابع اعمال تم (هم برای بارگذاری اولیه و هم برای تغییر)
+function applyTheme(theme) {
+    const html = document.documentElement;
+    html.setAttribute('data-theme', theme);
+    // بروزرسانی آیکون
+    if (theme === 'dark') {
+        themeIcon.className = 'fas fa-sun theme-icon';
+    } else {
+        themeIcon.className = 'fas fa-moon theme-icon';
+    }
+    // ذخیره در localStorage
+    localStorage.setItem('theme', theme);
+}
+
+// بارگذاری تم ذخیره‌شده یا پیش‌فرض (تاریک)
+function loadTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    const defaultTheme = 'dark';
+    const theme = savedTheme || defaultTheme;
+    applyTheme(theme);
+}
+
+// تابع تغییر تم (که توسط دکمه فراخوانی می‌شود)
 function toggleTheme() {
     const html = document.documentElement;
     const currentTheme = html.getAttribute('data-theme');
-    
-    if (currentTheme === 'dark') {
-        html.setAttribute('data-theme', 'light');
-        themeIcon.className = 'fas fa-moon theme-icon';
-        themeIcon.style.transform = 'rotate(360deg)';
-    } else {
-        html.setAttribute('data-theme', 'dark');
-        themeIcon.className = 'fas fa-sun theme-icon';
-        themeIcon.style.transform = 'rotate(-360deg)';
-    }
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    applyTheme(newTheme);
+    // افکت چرخش
+    themeIcon.style.transform = 'rotate(360deg)';
     setTimeout(() => { themeIcon.style.transition = 'none'; }, 300);
     setTimeout(() => { themeIcon.style.transition = 'transform 0.4s ease'; }, 350);
 }
+
 themeToggleBtn.addEventListener('click', toggleTheme);
 
 // --- 4. مدیریت مودال ---
@@ -138,7 +164,7 @@ modal.addEventListener('click', (e) => {
 const scrollTopBtn = document.getElementById('scroll-top-btn');
 
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) { // اگر بیش از 300 پیکسل اسکرول شد
+    if (window.scrollY > 300) {
         scrollTopBtn.classList.add('show');
     } else {
         scrollTopBtn.classList.remove('show');
@@ -148,9 +174,12 @@ window.addEventListener('scroll', () => {
 scrollTopBtn.addEventListener('click', () => {
     window.scrollTo({
         top: 0,
-        behavior: 'smooth' // اسکرول نرم
+        behavior: 'smooth'
     });
 });
 
-// بارگذاری اولیه سایت
-document.addEventListener('DOMContentLoaded', loadMatches);
+// --- بارگذاری اولیه سایت ---
+document.addEventListener('DOMContentLoaded', () => {
+    loadTheme();          // اعمال تم ذخیره‌شده
+    loadMatches();        // بارگذاری مسابقات
+});
