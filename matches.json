@@ -35,8 +35,7 @@
     "team1Image": "https://flagcdn.com/w80/pt.png",
     "team2": "ازبکستان",
     "team2Image": "https://flagcdn.com/w80/uz.png",
-    "league": "جام جهانی",
-    "countdown": true
+    "league": "جام جهانی"
   },
   {
     "date": "2026-06-23",
@@ -45,7 +44,8 @@
     "team1Image": "https://flagcdn.com/w80/gb-eng.png",
     "team2": "غنا",
     "team2Image": "https://flagcdn.com/w80/gh.png",
-    "league": "جام جهانی"
+    "league": "جام جهانی" ,
+    "countdown": true
   },
   {
     "date": "2026-06-24",
