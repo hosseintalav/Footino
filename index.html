@@ -5,37 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>فوتینو</title>
     
-    <!-- فونت Vazirmatn -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
 
-    <!-- آیکون‌های فونت‌آسوم -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- هدر سایت -->
     <header class="main-header">
         
-        <!-- لایه پشتی برای افکت بلور پرچم ایران -->
         <div class="header-bg-blur"></div>
 
-        <!-- [سمت راست در حالت RTL] - دکمه ارتباط با سازنده -->
         <div class="header-left">
             <button class="icon-btn" id="contact-btn" aria-label="ارتباط با سازنده">
                 <i class="fas fa-headset"></i>
             </button>
         </div>
 
-        <!-- وسط هدر - آیکون و نام برنامه -->
         <div class="header-center">
             <img class="worldcup" src="assets/worldcup.png" alt="جام جهانی" class="trophy-icon" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/2022_FIFA_World_Cup.svg/1200px-2022_FIFA_World_Cup.svg.png'">
             <h1 class="app-title">فـوتـینو</h1>
         </div>
 
-        <!-- [سمت چپ در حالت RTL] - دکمه تغییر تم -->
         <div class="header-right">
             <button class="icon-btn" id="theme-toggle" aria-label="تغییر تم">
                 <i class="fas fa-sun theme-icon"></i>
@@ -43,12 +36,36 @@
         </div>
     </header>
 
-    <!-- لیست مسابقات -->
-    <main id="match-list" class="match-container">
-        <!-- محتوا توسط جاوا‌اسکریپت تولید می‌شود -->
-    </main>
+    <div id="countdown-banner" class="countdown-sticky">
+        <div class="countdown-inner">
+            <div class="cd-flag-wrapper" id="cd-flag1-container">
+                <div class="cd-flag-backdrop" id="cd-flag1-blur"></div>
+                <img class="cd-flag-front" id="cd-flag1" src="" alt="">
+            </div>
 
-    <!-- مودال (پنجره ارتباط با سازنده) -->
+            <div class="countdown-center-content">
+                <span id="countdown-title" class="countdown-title">شمارش معکوس بازی بعدی</span>
+                <div class="countdown-timer">
+                    <div class="time-segment"><span id="cd-days">00</span><small>روز</small></div>
+                    <div class="time-divider">:</div>
+                    <div class="time-segment"><span id="cd-hours">00</span><small>ساعت</small></div>
+                    <div class="time-divider">:</div>
+                    <div class="time-segment"><span id="cd-minutes">00</span><small>دقیقه</small></div>
+                    <div class="time-divider">:</div>
+                    <div class="time-segment"><span id="cd-seconds">00</span><small>ثانیه</small></div>
+                </div>
+            </div>
+
+            <div class="cd-flag-wrapper" id="cd-flag2-container">
+                <div class="cd-flag-backdrop" id="cd-flag2-blur"></div>
+                <img class="cd-flag-front" id="cd-flag2" src="" alt="">
+            </div>
+        </div>
+    </div>
+
+    <main id="match-list" class="match-container">
+        </main>
+
     <div id="contact-modal" class="modal-overlay">
         <div class="modal-content">
             <h3>ارتباط با سازنده </h3>
@@ -65,7 +82,6 @@
         </div>
     </div>
 
-    <!-- دکمه اسکرول به بالا -->
     <button id="scroll-top-btn" class="scroll-top-btn" aria-label="بازگشت به بالا">
         <i class="fas fa-arrow-up"></i>
     </button>
