@@ -23,6 +23,12 @@ body {
     --text-color: #ffffff;
     --border-color: #3A3A3A;
     --shadow-color: rgba(0, 0, 0, 0.2);
+    --card-border: 1px solid rgba(255, 255, 255, 0.05);
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --glass-text: #ffffff;
+    --skeleton-bg: #333333;
+    --skeleton-shimmer: linear-gradient(90deg, #333333 25%, #444444 50%, #333333 75%);
 }
 
 [data-theme="light"] {
@@ -31,6 +37,12 @@ body {
     --text-color: #000000;
     --border-color: #E0E0E0;
     --shadow-color: rgba(0, 0, 0, 0.1);
+    --card-border: 1px solid rgba(0, 0, 0, 0.05);
+    --glass-bg: rgba(0, 0, 0, 0.05);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --glass-text: #222222;
+    --skeleton-bg: #E0E0E0;
+    --skeleton-shimmer: linear-gradient(90deg, #E0E0E0 25%, #ECECEC 50%, #E0E0E0 75%);
 }
 
 body {
@@ -48,8 +60,6 @@ body {
     background-color: transparent;
     border-bottom: 1px solid var(--border-color);
     transition: background-color var(--transition-duration), border-color var(--transition-duration);
-    position: sticky;
-    top: 0;
     z-index: 100;
     overflow: hidden;
     position: relative;
@@ -115,6 +125,131 @@ body {
     transform: scale(0.9);
 }
 
+/* ---- بنر شمارش معکوس شیشه‌ای چسبان ---- */
+.countdown-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px 15px;
+    display: none;
+}
+
+.countdown-inner {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px) saturate(1.4) brightness(1.1);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4) brightness(1.1);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    direction: rtl;
+    overflow: hidden; 
+}
+
+.countdown-center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    gap: 4px;
+}
+
+.countdown-title {
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--glass-text);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 240px;
+}
+
+.countdown-timer {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    direction: ltr; 
+}
+
+.time-segment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 32px;
+}
+
+.time-segment span {
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--glass-text);
+}
+
+.time-segment small {
+    font-size: 8px;
+    color: var(--glass-text);
+    opacity: 0.7;
+    margin-top: 1px;
+}
+
+.time-divider {
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--glass-text);
+    padding-bottom: 10px;
+    animation: blink 1s ease infinite;
+}
+
+/* استایل پرچم‌ها در شمارش معکوس */
+.cd-flag-wrapper {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.cd-flag-backdrop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(20px) brightness(1.4); 
+    opacity: 1;
+    transform: scale(2.9); 
+    z-index: 1;
+    pointer-events: none;
+}
+
+.cd-flag-front {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 2;
+}
+
+@keyframes blink {
+    50% { opacity: 0.4; }
+}
+
 /* ---- لیست مسابقات ---- */
 .match-container {
     max-width: 800px;
@@ -138,16 +273,18 @@ body {
     margin-bottom: 8px;
     border-radius: 12px;
     box-shadow: 0 2px 5px var(--shadow-color);
-    transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
+    border: var(--card-border);
+    transition: background-color var(--transition-duration), box-shadow var(--transition-duration), border var(--transition-duration);
     overflow: hidden;
     position: relative;
+    min-height: 75px;
 }
 
 .team-side {
     display: flex;
     align-items: center;
     gap: 10px;
-    width: 30%;
+    width: 35%;
 }
 
 .flag-wrapper {
@@ -201,23 +338,41 @@ body {
     justify-content: center;
     width: 30%;
     z-index: 2;
+    text-align: center;
 }
 
 .match-time {
     font-size: 18px;
     font-weight: bold;
     color: var(--text-color);
-    z-index: 2;
+    line-height: 1.2;
+}
+
+.live-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #ff4d4d;
+    line-height: 1.2;
+    animation: pulse 1.8s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.02); opacity: 1; text-shadow: 0 0 3px rgba(255, 77, 77, 0.3); }
+    100% { transform: scale(1); opacity: 0.9; }
 }
 
 .match-league {
     font-size: 11px;
     color: #888;
-    margin-top: 4px;
-    z-index: 2;
+    margin-top: 5px;
+    line-height: 1;
 }
 
-/* ===== مودال با افکت شیشه‌ای (Glassmorphism) ===== */
+/* ===== مودال با افکت شیشه‌ای ===== */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -256,9 +411,7 @@ body {
     max-width: 400px;
     text-align: center;
     transform: scale(0.9);
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-                background 0.3s ease,
-                box-shadow 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease, box-shadow 0.3s ease;
     border: none;
 }
 
@@ -305,134 +458,27 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.modal-btn:active {
-    transform: scale(0.95);
-}
-
-.telegram-btn {
-    background: rgba(0, 136, 204, 0.7);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border-color: rgba(255, 255, 255, 0.25);
-}
-
-.instagram-btn {
-    background: rgba(225, 48, 108, 0.7);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border-color: rgba(255, 255, 255, 0.25);
-}
-
-.close-modal-btn {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    color: var(--text-color);
-    font-size: 14px;
-    cursor: pointer;
-    padding: 8px 20px;
-    border-radius: 30px;
-    transition: background 0.2s, transform 0.2s;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-}
-
-.close-modal-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
-}
-
-.close-modal-btn:active {
-    transform: scale(0.92);
-}
+.modal-btn:active { transform: scale(0.95); }
+.telegram-btn { background: rgba(0, 136, 204, 0.7); border-color: rgba(255, 255, 255, 0.25); }
+.instagram-btn { background: rgba(225, 48, 108, 0.7); border-color: rgba(255, 255, 255, 0.25); }
+.close-modal-btn { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); color: var(--text-color); font-size: 14px; cursor: pointer; padding: 8px 20px; border-radius: 30px; transition: background 0.2s, transform 0.2s; }
+.close-modal-btn:hover { background: rgba(255, 255, 255, 0.15); }
 
 /* تم روشن برای مودال */
-[data-theme="light"] .modal-overlay {
-    background: rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(12px) saturate(1.2);
-    -webkit-backdrop-filter: blur(12px) saturate(1.2);
-}
+[data-theme="light"] .modal-overlay { background: rgba(0, 0, 0, 0.15); }
+[data-theme="light"] .modal-content { background: rgba(255, 255, 255, 0.2); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5), 0 8px 40px rgba(0, 0, 0, 0.12); color: #222; }
+[data-theme="light"] .modal-content p { color: rgba(0, 0, 0, 0.6); }
+[data-theme="light"] .modal-btn { background: rgba(255, 255, 255, 0.25); border-color: rgba(255, 255, 255, 0.3); color: #222; }
+[data-theme="light"] .telegram-btn { background: rgba(0, 136, 204, 0.8); color: #fff; }
+[data-theme="light"] .instagram-btn { background: rgba(225, 48, 108, 0.8); color: #fff; }
+[data-theme="light"] .close-modal-btn { background: rgba(0, 0, 0, 0.05); border-color: rgba(0, 0, 0, 0.1); color: #222; }
 
-[data-theme="light"] .modal-content {
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.5),
-        inset 1.5px 1.5px 0 rgba(255, 255, 255, 0.7),
-        inset 0 0 30px rgba(255, 255, 255, 0.15),
-        0 8px 40px rgba(0, 0, 0, 0.12);
-    color: #222;
-}
+/* تم تاریک برای مودال */
+[data-theme="dark"] .modal-content { background: rgba(255, 255, 255, 0.06); color: #fff; }
+[data-theme="dark"] .modal-content p { color: rgba(255, 255, 255, 0.6); }
+[data-theme="dark"] .modal-btn { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.15); color: #fff; }
 
-[data-theme="light"] .modal-content p {
-    color: rgba(0, 0, 0, 0.6);
-}
-
-[data-theme="light"] .modal-btn {
-    background: rgba(255, 255, 255, 0.25);
-    border-color: rgba(255, 255, 255, 0.3);
-    color: #222;
-}
-
-[data-theme="light"] .telegram-btn {
-    background: rgba(0, 136, 204, 0.8);
-    color: #fff;
-}
-
-[data-theme="light"] .instagram-btn {
-    background: rgba(225, 48, 108, 0.8);
-    color: #fff;
-}
-
-[data-theme="light"] .close-modal-btn {
-    background: rgba(0, 0, 0, 0.05);
-    border-color: rgba(0, 0, 0, 0.1);
-    color: #222;
-}
-
-[data-theme="light"] .close-modal-btn:hover {
-    background: rgba(0, 0, 0, 0.1);
-}
-
-/* تم تاریک برای مودال (همون پیش‌فرض) */
-[data-theme="dark"] .modal-content {
-    background: rgba(255, 255, 255, 0.06);
-    box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.15),
-        inset 1.5px 1.5px 0 rgba(255, 255, 255, 0.3),
-        inset 0 0 30px rgba(255, 255, 255, 0.05),
-        0 8px 40px rgba(0, 0, 0, 0.4);
-    color: #fff;
-}
-
-[data-theme="dark"] .modal-content p {
-    color: rgba(255, 255, 255, 0.6);
-}
-
-[data-theme="dark"] .modal-btn {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.15);
-    color: #fff;
-}
-
-[data-theme="dark"] .telegram-btn {
-    background: rgba(0, 136, 204, 0.7);
-    color: #fff;
-}
-
-[data-theme="dark"] .instagram-btn {
-    background: rgba(225, 48, 108, 0.7);
-    color: #fff;
-}
-
-[data-theme="dark"] .close-modal-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
-    color: #fff;
-}
-
-[data-theme="dark"] .close-modal-btn:hover {
-    background: rgba(255, 255, 255, 0.12);
-}
-
-/* ===== دکمه اسکرول به بالا با افکت شیشه‌ای ===== */
+/* ===== دکمه اسکرول به بالا ===== */
 .scroll-top-btn {
     position: fixed;
     bottom: 24px;
@@ -448,140 +494,83 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(12px) saturate(1.4) brightness(1.1);
-    -webkit-backdrop-filter: blur(12px) saturate(1.4) brightness(1.1);
-    box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.2),
-        inset 1.5px 1.5px 0 rgba(255, 255, 255, 0.4),
-        inset 0 0 20px rgba(255, 255, 255, 0.08),
-        0 8px 32px rgba(0, 0, 0, 0.25);
-    
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2), 0 8px 32px rgba(0, 0, 0, 0.25);
     opacity: 0;
     transform: scale(0.6);
     pointer-events: none;
-    transition: 
-        opacity 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-        background 0.3s ease,
-        box-shadow 0.3s ease,
-        color 0.3s ease;
+    transition: opacity 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
 }
 
-.scroll-top-btn.show {
-    opacity: 1;
-    transform: scale(1);
-    pointer-events: auto;
-}
+.scroll-top-btn.show { opacity: 1; transform: scale(1); pointer-events: auto; }
+.scroll-top-btn:hover { background: rgba(255, 255, 255, 0.15); transform: scale(1.05); }
 
-.scroll-top-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.35),
-        inset 1.5px 1.5px 0 rgba(255, 255, 255, 0.6),
-        inset 0 0 24px rgba(255, 255, 255, 0.15),
-        0 8px 40px rgba(0, 0, 0, 0.3);
-    transform: scale(1.05);
-}
+[data-theme="light"] .scroll-top-btn { background: rgba(255, 255, 255, 0.15); color: #333333; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4), 0 8px 32px rgba(0, 0, 0, 0.12); }
+[data-theme="dark"] .scroll-top-btn { background: rgba(255, 255, 255, 0.06); color: #ffffff; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15), 0 8px 32px rgba(0, 0, 0, 0.35); }
 
-.scroll-top-btn:active {
-    transform: scale(0.85);
-    background: rgba(255, 255, 255, 0.04);
-    box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.1),
-        inset 0 0 20px rgba(255, 255, 255, 0.02),
-        0 4px 16px rgba(0, 0, 0, 0.2);
-    transition-duration: 0.08s;
-}
-
-/* تم روشن برای دکمه اسکرول */
-[data-theme="light"] .scroll-top-btn {
-    background: rgba(255, 255, 255, 0.15);
-    color: #333333;
-    box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.4),
-        inset 1.5px 1.5px 0 rgba(255, 255, 255, 0.6),
-        inset 0 0 20px rgba(255, 255, 255, 0.15),
-        0 8px 32px rgba(0, 0, 0, 0.12);
-}
-
-[data-theme="light"] .scroll-top-btn:hover {
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.6),
-        inset 1.5px 1.5px 0 rgba(255, 255, 255, 0.8),
-        inset 0 0 28px rgba(255, 255, 255, 0.25),
-        0 8px 40px rgba(0, 0, 0, 0.18);
-}
-
-[data-theme="light"] .scroll-top-btn:active {
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.2),
-        inset 0 0 16px rgba(255, 255, 255, 0.05),
-        0 4px 16px rgba(0, 0, 0, 0.1);
-}
-
-/* تم تاریک برای دکمه اسکرول */
-[data-theme="dark"] .scroll-top-btn {
-    background: rgba(255, 255, 255, 0.06);
-    color: #ffffff;
-    box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.15),
-        inset 1.5px 1.5px 0 rgba(255, 255, 255, 0.3),
-        inset 0 0 20px rgba(255, 255, 255, 0.05),
-        0 8px 32px rgba(0, 0, 0, 0.35);
-}
-
-[data-theme="dark"] .scroll-top-btn:hover {
-    background: rgba(255, 255, 255, 0.12);
-    box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.3),
-        inset 1.5px 1.5px 0 rgba(255, 255, 255, 0.5),
-        inset 0 0 24px rgba(255, 255, 255, 0.1),
-        0 8px 40px rgba(0, 0, 0, 0.4);
-}
-
-[data-theme="dark"] .scroll-top-btn:active {
-    background: rgba(255, 255, 255, 0.03);
-    box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.08),
-        inset 0 0 16px rgba(255, 255, 255, 0.02),
-        0 4px 16px rgba(0, 0, 0, 0.25);
-}
-
-/* موبایل */
+/* رسپانسیو موبایل */
 @media (max-width: 480px) {
-    .scroll-top-btn {
-        width: 42px;
-        height: 42px;
-        bottom: 16px;
-        right: 16px;
-        font-size: 16px;
-        backdrop-filter: blur(10px) saturate(1.3) brightness(1.1);
-        -webkit-backdrop-filter: blur(10px) saturate(1.3) brightness(1.1);
-    }
-
-    .modal-content {
-        padding: 24px 18px;
-        border-radius: 20px;
-        width: 90%;
-    }
-
-    .modal-btn {
-        padding: 10px;
-        font-size: 14px;
-    }
-}
-
-/* ---- واکنش‌گرا برای موبایل (سایر بخش‌ها) ---- */
-@media (max-width: 480px) {
-    .team-side { width: 35%; gap: 8px; }
-    .match-center { width: 30%; }
-    .team-name { font-size: 13px; }
-    .match-time { font-size: 16px; }
+    .scroll-top-btn { width: 42px; height: 42px; bottom: 16px; right: 16px; font-size: 16px; }
+    .modal-content { padding: 24px 18px; border-radius: 20px; width: 90%; }
+    .countdown-title { font-size: 11px; max-width: 160px; }
+    .time-segment span { font-size: 13px; }
+    .cd-flag-wrapper { width: 30px; height: 30px; }
+    .team-side { width: 35%; gap: 6px; }
+    .team-name { font-size: 12px; }
+    .match-time { font-size: 15px; }
     .flag-wrapper { width: 28px; height: 28px; }
     .trophy-icon { width: 35px; height: 35px; }
     .app-title { font-size: 16px; }
+}
+
+/* ===================================================
+   👈 استایل‌های جدید مربوط به اسکلتون لودینگ (Skeleton Loading)
+   =================================================== */
+.skeleton-item {
+    background-color: var(--card-color);
+    border: var(--card-border);
+    border-radius: 12px;
+    padding: 15px 10px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 75px;
+    pointer-events: none;
+}
+
+.skeleton-element {
+    background: var(--skeleton-shimmer);
+    background-size: 200% 100%;
+    animation: skeleton-load 1.4s infinite linear;
+    border-radius: 4px;
+}
+
+.skeleton-flag {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.skeleton-text {
+    height: 14px;
+    width: 60px;
+}
+
+.skeleton-center-text {
+    height: 16px;
+    width: 45px;
+    margin-bottom: 6px;
+}
+
+.skeleton-sub-text {
+    height: 10px;
+    width: 55px;
+}
+
+@keyframes skeleton-load {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
 }
