@@ -180,7 +180,8 @@
     "team1Image": "https://flagcdn.com/w80/no.png",
     "team2": "فرانسه",
     "team2Image": "https://flagcdn.com/w80/fr.png",
-    "league": "جام جهانی"
+    "league": "جام جهانی",
+    "countdown": true
   },
   {
     "date": "2026-06-26",
