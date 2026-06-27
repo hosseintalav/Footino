@@ -52,5 +52,59 @@
     "team2": "اتریش",
     "team2Image": "https://flagcdn.com/w80/at.png",
     "league": "جام جهانی"
+  },
+  {
+    "date": "2026-06-28",
+    "time": "22:30",
+    "team1": "آفریقای جنوبی",
+    "team1Image": "https://flagcdn.com/w80/za.png",
+    "team2": "کانادا",
+    "team2Image": "https://flagcdn.com/w80/ca.png",
+    "league": "مرحله 32 جام جهانی"
+  },
+  {
+    "date": "2026-06-29",
+    "time": "20:30",
+    "team1": "برزیل",
+    "team1Image": "https://flagcdn.com/w80/br.png",
+    "team2": "ژاپن",
+    "team2Image": "https://flagcdn.com/w80/jp.png",
+    "league": "مرحله 32 جام جهانی"
+  },
+  {
+    "date": "2026-06-30",
+    "time": "00:00",
+    "team1": "آلمان",
+    "team1Image": "https://flagcdn.com/w80/de.png",
+    "team2": "پاراگوئه",
+    "team2Image": "https://flagcdn.com/w80/py.png",
+    "league": "مرحله 32 جام جهانی"
+  },
+  {
+    "date": "2026-06-30",
+    "time": "04:30",
+    "team1": "هلند",
+    "team1Image": "https://flagcdn.com/w80/nl.png",
+    "team2": "مراکش",
+    "team2Image": "https://flagcdn.com/w80/ma.png",
+    "league": "مرحله 32 جام جهانی"
+  },
+  {
+    "date": "2026-06-30",
+    "time": "20:30",
+    "team1": "ساحل عاج",
+    "team1Image": "https://flagcdn.com/w80/ci.png",
+    "team2": "نروژ",
+    "team2Image": "https://flagcdn.com/w80/no.png",
+    "league": "مرحله 32 جام جهانی"
+  },
+  {
+    "date": "2026-07-01",
+    "time": "00:30",
+    "team1": "فرانسه",
+    "team1Image": "https://flagcdn.com/w80/fr.png",
+    "team2": "سوئد",
+    "team2Image": "https://flagcdn.com/w80/se.png",
+    "league": "مرحله 32 جام جهانی"
   }
 ]
