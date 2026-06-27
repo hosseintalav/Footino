@@ -178,7 +178,8 @@
     "team1Image": "https://flagcdn.com/w80/eg.png",
     "team2": "ایران",
     "team2Image": "https://flagcdn.com/w80/ir.png",
-    "league": "جام جهانی"
+    "league": "جام جهانی",
+    "countdown": true
   },
   {
     "date": "2026-06-28",
