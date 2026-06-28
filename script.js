@@ -182,7 +182,7 @@ function initCountdown() {
         return;
     }
 
-    document.getElementById('countdown-title').textContent = `بازی بعدی: ${targetMatch.team1} - ${targetMatch.team2}`;
+    document.getElementById('countdown-title').textContent = `بازی مهم بعدی: ${targetMatch.team1} - ${targetMatch.team2}`;
     
     // پرچم تیم اول
     const img1 = document.getElementById('cd-flag1');
