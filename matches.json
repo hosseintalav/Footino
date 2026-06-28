@@ -1,58 +1,5 @@
 [
-  {
-    "date": "2026-06-28",
-    "time": "00:30",
-    "team1": "پاناما",
-    "team1Image": "https://flagcdn.com/w80/pa.png",
-    "team2": "انگلیس",
-    "team2Image": "https://flagcdn.com/w80/gb-eng.png",
-    "league": "جام جهانی"
-  },
-  {
-    "date": "2026-06-28",
-    "time": "00:30",
-    "team1": "کرواسی",
-    "team1Image": "https://flagcdn.com/w80/hr.png",
-    "team2": "غنا",
-    "team2Image": "https://flagcdn.com/w80/gh.png",
-    "league": "جام جهانی"
-  },
-  {
-    "date": "2026-06-28",
-    "time": "03:00",
-    "team1": "کلمبیا",
-    "team1Image": "https://flagcdn.com/w80/co.png",
-    "team2": "پرتغال",
-    "team2Image": "https://flagcdn.com/w80/pt.png",
-    "league": "جام جهانی"
-  },
-  {
-    "date": "2026-06-28",
-    "time": "03:00",
-    "team1": "کنگو",
-    "team1Image": "https://flagcdn.com/w80/cd.png",
-    "team2": "ازبکستان",
-    "team2Image": "https://flagcdn.com/w80/uz.png",
-    "league": "جام جهانی"
-  },
-  {
-    "date": "2026-06-28",
-    "time": "05:30",
-    "team1": "اردن",
-    "team1Image": "https://flagcdn.com/w80/jo.png",
-    "team2": "آرژانتین",
-    "team2Image": "https://flagcdn.com/w80/ar.png",
-    "league": "جام جهانی"
-  },
-  {
-    "date": "2026-06-28",
-    "time": "05:30",
-    "team1": "الجزایر",
-    "team1Image": "https://flagcdn.com/w80/dz.png",
-    "team2": "اتریش",
-    "team2Image": "https://flagcdn.com/w80/at.png",
-    "league": "جام جهانی"
-  },
+
   {
     "date": "2026-06-28",
     "time": "22:30",
