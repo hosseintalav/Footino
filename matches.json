@@ -16,8 +16,8 @@
     "team1Image": "https://flagcdn.com/w80/br.png",
     "team2": "ژاپن",
     "team2Image": "https://flagcdn.com/w80/jp.png",
-    "league": "مرحله 32 جام جهانی",
-    "countdown": true
+    "league": "مرحله 32 جام جهانی"
+   
   },
   {
     "date": "2026-06-30",
@@ -107,7 +107,8 @@
     "team1Image": "https://flagcdn.com/w80/pt.png",
     "team2": "کرواسی",
     "team2Image": "https://flagcdn.com/w80/hr.png",
-    "league": "مرحله 32 جام جهانی"
+    "league": "مرحله 32 جام جهانی",
+    "countdown": true
   },
   {
     "date": "2026-07-03",
