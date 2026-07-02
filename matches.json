@@ -1,96 +1,4 @@
 [
-
- {
-    "date": "2026-06-28",
-    "time": "22:30",
-    "team1": "آفریقای جنوبی",
-    "team1Image": "https://flagcdn.com/w80/za.png",
-    "team2": "کانادا",
-    "team2Image": "https://flagcdn.com/w80/ca.png",
-    "league": "مرحله 32 جام جهانی"
-  },
-  {
-    "date": "2026-06-29",
-    "time": "20:30",
-    "team1": "برزیل",
-    "team1Image": "https://flagcdn.com/w80/br.png",
-    "team2": "ژاپن",
-    "team2Image": "https://flagcdn.com/w80/jp.png",
-    "league": "مرحله 32 جام جهانی"
-   
-  },
-  {
-    "date": "2026-06-30",
-    "time": "00:00",
-    "team1": "آلمان",
-    "team1Image": "https://flagcdn.com/w80/de.png",
-    "team2": "پاراگوئه",
-    "team2Image": "https://flagcdn.com/w80/py.png",
-    "league": "مرحله 32 جام جهانی"
-  },
-  {
-    "date": "2026-06-30",
-    "time": "04:30",
-    "team1": "هلند",
-    "team1Image": "https://flagcdn.com/w80/nl.png",
-    "team2": "مراکش",
-    "team2Image": "https://flagcdn.com/w80/ma.png",
-    "league": "مرحله 32 جام جهانی"
-  },
-  {
-    "date": "2026-06-30",
-    "time": "20:30",
-    "team1": "ساحل عاج",
-    "team1Image": "https://flagcdn.com/w80/ci.png",
-    "team2": "نروژ",
-    "team2Image": "https://flagcdn.com/w80/no.png",
-    "league": "مرحله 32 جام جهانی"
-  },
-  {
-    "date": "2026-07-01",
-    "time": "00:30",
-    "team1": "فرانسه",
-    "team1Image": "https://flagcdn.com/w80/fr.png",
-    "team2": "سوئد",
-    "team2Image": "https://flagcdn.com/w80/se.png",
-    "league": "مرحله 32 جام جهانی"
-  },
-  {
-    "date": "2026-07-01",
-    "time": "04:30",
-    "team1": "مکزیک",
-    "team1Image": "https://flagcdn.com/w80/mx.png",
-    "team2": "اکوادور",
-    "team2Image": "https://flagcdn.com/w80/ec.png",
-    "league": "مرحله 32 جام جهانی"
-  },
-  {
-    "date": "2026-07-01",
-    "time": "19:30",
-    "team1": "انگلیس",
-    "team1Image": "https://flagcdn.com/w80/gb-eng.png",
-    "team2": "کنگو",
-    "team2Image": "https://flagcdn.com/w80/cd.png",
-    "league": "مرحله 32 جام جهانی"
-  },
-  {
-    "date": "2026-07-01",
-    "time": "23:30",
-    "team1": "بلژیک",
-    "team1Image": "https://flagcdn.com/w80/be.png",
-    "team2": "سنگال",
-    "team2Image": "https://flagcdn.com/w80/sn.png",
-    "league": "مرحله 32 جام جهانی"
-  },
-  {
-    "date": "2026-07-02",
-    "time": "03:30",
-    "team1": "آمریکا",
-    "team1Image": "https://flagcdn.com/w80/us.png",
-    "team2": "بوسنی",
-    "team2Image": "https://flagcdn.com/w80/ba.png",
-    "league": "مرحله 32 جام جهانی"
-  },
   {
     "date": "2026-07-02",
     "time": "22:30",
@@ -145,6 +53,41 @@
     "team2": "غنا",
     "team2Image": "https://flagcdn.com/w80/gh.png",
     "league": "مرحله 32 جام جهانی"
+  },
+  {
+    "date": "2026-07-04",
+    "time": "20:30",
+    "team1": "کانادا",
+    "team1Image": "https://flagcdn.com/w80/ca.png",
+    "team2": "مراکش",
+    "team2Image": "https://flagcdn.com/w80/ma.png",
+    "league": "مرحله 16 جام جهانی"
+  },
+  {
+    "date": "2026-07-05",
+    "time": "00:30",
+    "team1": "پاراگوئه",
+    "team1Image": "https://flagcdn.com/w80/py.png",
+    "team2": "فرانسه",
+    "team2Image": "https://flagcdn.com/w80/fr.png",
+    "league": "مرحله 16 جام جهانی"
+  },
+  {
+    "date": "2026-07-05",
+    "time": "23:30",
+    "team1": "برزیل",
+    "team1Image": "https://flagcdn.com/w80/br.png",
+    "team2": "نروژ",
+    "team2Image": "https://flagcdn.com/w80/no.png",
+    "league": "مرحله 16 جام جهانی"
+  },
+  {
+    "date": "2026-07-06",
+    "time": "03:30",
+    "team1": "مکزیک",
+    "team1Image": "https://flagcdn.com/w80/mx.png",
+    "team2": "انگلیس",
+    "team2Image": "https://flagcdn.com/w80/gb.png",
+    "league": "مرحله 16 جام جهانی"
   }
 ]
- 
