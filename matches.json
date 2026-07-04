@@ -24,7 +24,8 @@
     "team1Image": "https://flagcdn.com/w80/br.png",
     "team2": "نروژ",
     "team2Image": "https://flagcdn.com/w80/no.png",
-    "league": "مرحله 16 جام جهانی"
+    "league": "مرحله 16 جام جهانی",
+    "countdown": true
   },
   {
     "date": "2026-07-06",
