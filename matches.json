@@ -43,7 +43,8 @@
     "team1Image": "https://flagcdn.com/w80/pt.png",
     "team2": "اسپانیا",
     "team2Image": "https://flagcdn.com/w80/es.png",
-    "league": "مرحله 16 جام جهانی"
+    "league": "مرحله 16 جام جهانی",
+    "countdown": true
   },
   {
     "date": "2026-07-07",
