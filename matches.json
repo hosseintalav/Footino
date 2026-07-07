@@ -1,76 +1,50 @@
 [
   {
-    "date": "2026-07-04",
-    "time": "20:30",
-    "team1": "کانادا",
-    "team1Image": "https://flagcdn.com/w80/ca.png",
-    "team2": "مراکش",
-    "team2Image": "https://flagcdn.com/w80/ma.png",
-    "league": "مرحله 16 جام جهانی"
-  },
-  {
-    "date": "2026-07-05",
-    "time": "00:30",
-    "team1": "پاراگوئه",
-    "team1Image": "https://flagcdn.com/w80/py.png",
-    "team2": "فرانسه",
-    "team2Image": "https://flagcdn.com/w80/fr.png",
-    "league": "مرحله 16 جام جهانی"
-  },
-  {
-    "date": "2026-07-05",
-    "time": "23:30",
-    "team1": "برزیل",
-    "team1Image": "https://flagcdn.com/w80/br.png",
-    "team2": "نروژ",
-    "team2Image": "https://flagcdn.com/w80/no.png",
-    "league": "مرحله 16 جام جهانی",
-    "countdown": true
-  },
-  {
-    "date": "2026-07-06",
-    "time": "03:30",
-    "team1": "مکزیک",
-    "team1Image": "https://flagcdn.com/w80/mx.png",
-    "team2": "انگلیس",
-    "team2Image": "https://flagcdn.com/w80/gb-eng.png",
-    "league": "مرحله 16 جام جهانی"
-  },
-  {
-    "date": "2026-07-06",
-    "time": "22:30",
-    "team1": "پرتغال",
-    "team1Image": "https://flagcdn.com/w80/pt.png",
-    "team2": "اسپانیا",
-    "team2Image": "https://flagcdn.com/w80/es.png",
-    "league": "مرحله 16 جام جهانی",
-    "countdown": true
-  },
-  {
-    "date": "2026-07-07",
-    "time": "03:30",
-    "team1": "آمریکا",
-    "team1Image": "https://flagcdn.com/w80/us.png",
-    "team2": "بلژیک",
-    "team2Image": "https://flagcdn.com/w80/be.png",
-    "league": "مرحله 16 جام جهانی"
-  },
-  {
     "date": "2026-07-07",
     "time": "19:30",
-    "team1": "مصر",
-    "team1Image": "https://flagcdn.com/w80/eg.png",
-    "team2": "آرژانتین",
-    "team2Image": "https://flagcdn.com/w80/ar.png",
-    "league": "مرحله 16 جام جهانی"
+    "team1": "آرژانتین",
+    "team1Image": "https://flagcdn.com/w80/ar.png",
+    "team2": "مصر",
+    "team2Image": "https://flagcdn.com/w80/eg.png",
+    "league": "مرحله 16 جام جهانی",
+    "countdown": true
   },
   {
     "date": "2026-07-07",
     "time": "23:30",
-    "team1": "سوئیس",
-    "team1Image": "https://flagcdn.com/w80/ch.png",
-    "team2": "کلمبیا",
-    "team2Image": "https://flagcdn.com/w80/co.png",
+    "team1": "کلمبیا",
+    "team1Image": "https://flagcdn.com/w80/co.png",
+    "team2": "سوئیس",
+    "team2Image": "https://flagcdn.com/w80/ch.png",
     "league": "مرحله 16 جام جهانی"
+  },
+  {
+    "date": "2026-07-09",
+    "time": "23:30",
+    "team1": "فرانسه",
+    "team1Image": "https://flagcdn.com/w80/fr.png",
+    "team2": "مراکش",
+    "team2Image": "https://flagcdn.com/w80/ma.png",
+    "league": "یک چهارم نهایی",
+    "countdown": true
+  },
+  {
+    "date": "2026-07-10",
+    "time": "22:30",
+    "team1": "اسپانیا",
+    "team1Image": "https://flagcdn.com/w80/es.png",
+    "team2": "بلژیک",
+    "team2Image": "https://flagcdn.com/w80/be.png",
+    "league": "یک چهارم نهایی جام جهانی"
+  },
+  {
+    "date": "2026-07-12",
+    "time": "00:30",
+    "team1": "نروژ",
+    "team1Image": "https://flagcdn.com/w80/no.png",
+    "team2": "انگلیس",
+    "team2Image": "https://flagcdn.com/w80/gb-eng.png",
+    "league": "یک چهارم نهایی",
+    "countdown": true
   }
 ]
