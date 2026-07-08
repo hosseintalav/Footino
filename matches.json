@@ -58,5 +58,45 @@
     "team2Image": "https://flagcdn.com/w80/ch.png",
     "league": "یک چهارم نهایی",
     "countdown": true
+  },
+  {
+    "date": "2026-07-14",
+    "time": "22:30",
+    "team1": " نامشخص",
+    "team1Image": "?",
+    "team2": " نامشخص",
+    "team2Image": "?",
+    "league": "نیمه نهایی",
+    "countdown": true
+  },
+  {
+    "date": "2026-07-15",
+    "time": "22:30",
+    "team1": " نامشخص",
+    "team1Image": "?",
+    "team2": " نامشخص",
+    "team2Image": "?",
+    "league": "نیمه نهایی",
+    "countdown": true
+  },
+  {
+    "date": "2026-07-19",
+    "time": "00:30",
+    "team1": " نامشخص",
+    "team1Image": "?",
+    "team2": " نامشخص",
+    "team2Image": "?",
+    "league": "رده بندی",
+    "countdown": true
+  },
+  {
+    "date": "2026-07-19",
+    "time": "22:30",
+    "team1": " نامشخص",
+    "team1Image": "?",
+    "team2": " نامشخص",
+    "team2Image": "?",
+    "league": "فینال جام‌جهانی",
+    "countdown": true
   }
 ]
