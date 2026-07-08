@@ -6,7 +6,7 @@
     "team1Image": "https://flagcdn.com/w80/ar.png",
     "team2": "مصر",
     "team2Image": "https://flagcdn.com/w80/eg.png",
-    "league": "مرحله 16 جام جهانی",
+    "league": "یک چهارم نهایی",
     "countdown": true
   },
   {
@@ -16,7 +16,8 @@
     "team1Image": "https://flagcdn.com/w80/co.png",
     "team2": "سوئیس",
     "team2Image": "https://flagcdn.com/w80/ch.png",
-    "league": "مرحله 16 جام جهانی"
+    "league": "یک چهارم نهایی",
+    "countdown": true
   },
   {
     "date": "2026-07-09",
@@ -35,7 +36,8 @@
     "team1Image": "https://flagcdn.com/w80/es.png",
     "team2": "بلژیک",
     "team2Image": "https://flagcdn.com/w80/be.png",
-    "league": "یک چهارم نهایی"
+    "league": "یک چهارم نهایی",
+    "countdown": true
   },
   {
     "date": "2026-07-12",
@@ -44,6 +46,16 @@
     "team1Image": "https://flagcdn.com/w80/no.png",
     "team2": "انگلیس",
     "team2Image": "https://flagcdn.com/w80/gb-eng.png",
+    "league": "یک چهارم نهایی",
+    "countdown": true
+  },
+  {
+    "date": "2026-07-12",
+    "time": "04:30",
+    "team1": "آرژانتین",
+    "team1Image": "https://flagcdn.com/w80/ar.png",
+    "team2": "سوئیس",
+    "team2Image": "https://flagcdn.com/w80/ch.png",
     "league": "یک چهارم نهایی",
     "countdown": true
   }
