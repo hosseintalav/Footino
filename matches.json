@@ -1,44 +1,5 @@
 [
-  {
-    "date": "2026-07-07",
-    "time": "19:30",
-    "team1": "آرژانتین",
-    "team1Image": "https://flagcdn.com/w80/ar.png",
-    "team2": "مصر",
-    "team2Image": "https://flagcdn.com/w80/eg.png",
-    "league": "یک چهارم نهایی",
-    "countdown": true
-  },
-  {
-    "date": "2026-07-07",
-    "time": "23:30",
-    "team1": "کلمبیا",
-    "team1Image": "https://flagcdn.com/w80/co.png",
-    "team2": "سوئیس",
-    "team2Image": "https://flagcdn.com/w80/ch.png",
-    "league": "یک چهارم نهایی",
-    "countdown": true
-  },
-  {
-    "date": "2026-07-09",
-    "time": "23:30",
-    "team1": "فرانسه",
-    "team1Image": "https://flagcdn.com/w80/fr.png",
-    "team2": "مراکش",
-    "team2Image": "https://flagcdn.com/w80/ma.png",
-    "league": "یک چهارم نهایی",
-    "countdown": true
-  },
-  {
-    "date": "2026-07-10",
-    "time": "22:30",
-    "team1": "اسپانیا",
-    "team1Image": "https://flagcdn.com/w80/es.png",
-    "team2": "بلژیک",
-    "team2Image": "https://flagcdn.com/w80/be.png",
-    "league": "یک چهارم نهایی",
-    "countdown": true
-  },
+
   {
     "date": "2026-07-12",
     "time": "00:30",
@@ -62,19 +23,19 @@
   {
     "date": "2026-07-14",
     "time": "22:30",
-    "team1": " نامشخص",
-    "team1Image": "?",
-    "team2": " نامشخص",
-    "team2Image": "?",
+    "team1": "فرانسه",
+    "team1Image": "https://flagcdn.com/w80/fr.png",
+    "team2": "اسپانیا",
+    "team2Image": "https://flagcdn.com/w80/es.png",
     "league": "نیمه نهایی",
     "countdown": true
   },
   {
     "date": "2026-07-15",
     "time": "22:30",
-    "team1": " نامشخص",
+    "team1": "تیم نامشخص",
     "team1Image": "?",
-    "team2": " نامشخص",
+    "team2": "تیم نامشخص",
     "team2Image": "?",
     "league": "نیمه نهایی",
     "countdown": true
@@ -82,9 +43,9 @@
   {
     "date": "2026-07-19",
     "time": "00:30",
-    "team1": " نامشخص",
+    "team1": "تیم نامشخص",
     "team1Image": "?",
-    "team2": " نامشخص",
+    "team2": "تیم نامشخص",
     "team2Image": "?",
     "league": "رده بندی",
     "countdown": true
@@ -92,9 +53,9 @@
   {
     "date": "2026-07-19",
     "time": "22:30",
-    "team1": " نامشخص",
+    "team1": "تیم نامشخص",
     "team1Image": "?",
-    "team2": " نامشخص",
+    "team2": "تیم نامشخص",
     "team2Image": "?",
     "league": "فینال جام‌جهانی",
     "countdown": true
