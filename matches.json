@@ -1,25 +1,5 @@
 [
-
-  {
-    "date": "2026-07-12",
-    "time": "00:30",
-    "team1": "نروژ",
-    "team1Image": "https://flagcdn.com/w80/no.png",
-    "team2": "انگلیس",
-    "team2Image": "https://flagcdn.com/w80/gb-eng.png",
-    "league": "یک چهارم نهایی",
-    "countdown": true
-  },
-  {
-    "date": "2026-07-12",
-    "time": "04:30",
-    "team1": "آرژانتین",
-    "team1Image": "https://flagcdn.com/w80/ar.png",
-    "team2": "سوئیس",
-    "team2Image": "https://flagcdn.com/w80/ch.png",
-    "league": "یک چهارم نهایی",
-    "countdown": true
-  },
+  
   {
     "date": "2026-07-14",
     "time": "22:30",
@@ -33,10 +13,10 @@
   {
     "date": "2026-07-15",
     "time": "22:30",
-    "team1": "تیم نامشخص",
-    "team1Image": "?",
-    "team2": "تیم نامشخص",
-    "team2Image": "?",
+    "team1": "آرژانتین",
+    "team1Image": "https://flagcdn.com/w80/ar.png",
+    "team2": "انگلیس",
+    "team2Image": "https://flagcdn.com/w80/gb-eng.png",
     "league": "نیمه نهایی",
     "countdown": true
   },
