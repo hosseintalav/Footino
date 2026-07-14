@@ -1,15 +1,4 @@
 [
-  
-  {
-    "date": "2026-07-14",
-    "time": "22:30",
-    "team1": "فرانسه",
-    "team1Image": "https://flagcdn.com/w80/fr.png",
-    "team2": "اسپانیا",
-    "team2Image": "https://flagcdn.com/w80/es.png",
-    "league": "نیمه نهایی",
-    "countdown": true
-  },
   {
     "date": "2026-07-15",
     "time": "22:30",
@@ -23,8 +12,8 @@
   {
     "date": "2026-07-19",
     "time": "00:30",
-    "team1": "تیم نامشخص",
-    "team1Image": "?",
+    "team1": "فرانسه",
+    "team1Image": "https://flagcdn.com/w80/fr.png",
     "team2": "تیم نامشخص",
     "team2Image": "?",
     "league": "رده بندی",
@@ -33,8 +22,8 @@
   {
     "date": "2026-07-19",
     "time": "22:30",
-    "team1": "تیم نامشخص",
-    "team1Image": "?",
+    "team1": "اسپانیا",
+    "team1Image": "https://flagcdn.com/w80/es.png",
     "team2": "تیم نامشخص",
     "team2Image": "?",
     "league": "فینال جام‌جهانی",
