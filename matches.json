@@ -14,8 +14,8 @@
     "time": "00:30",
     "team1": "فرانسه",
     "team1Image": "https://flagcdn.com/w80/fr.png",
-    "team2": "تیم نامشخص",
-    "team2Image": "?",
+    "team2": "انگلیس",
+    "team2Image": "https://flagcdn.com/w80/gb-eng.png",
     "league": "رده بندی",
     "countdown": true
   },
@@ -24,8 +24,8 @@
     "time": "22:30",
     "team1": "اسپانیا",
     "team1Image": "https://flagcdn.com/w80/es.png",
-    "team2": "تیم نامشخص",
-    "team2Image": "?",
+    "team2": "آرژانتین",
+    "team2Image": "https://flagcdn.com/w80/ar.png",
     "league": "فینال جام‌جهانی",
     "countdown": true
   }
