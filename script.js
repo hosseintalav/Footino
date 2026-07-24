@@ -36,14 +36,14 @@ function getMatchDateTime(match) {
 
 // --- ۲. بارگذاری و رندر کردن مسابقات ---
 async function loadMatches() {
-    // 👈 نمایش کارت‌های اسکلتون پیش از ریکوئست زدن به فایل json
+    // نمایش کارت‌های اسکلتون پیش از ریکوئست زدن به فایل json
     renderSkeletonLoaders();
 
     try {
         const response = await fetch('matches.json');
         allMatches = await response.json();
         
-        // یک تاخیر فانتزی و کوتاه (مثلا ۴۰۰ میلی ثانیه) برای اینکه افکت اسکلتون روی هاردهای پرسرعت هم نرم دیده بشه
+        // تاخیر کوتاه برای نمایش نرم‌تر افکت اسکلتون
         await new Promise(resolve => setTimeout(resolve, 400));
 
         renderAllMatches();
@@ -61,7 +61,7 @@ async function loadMatches() {
     }
 }
 
-// 👈 تابع جدید جهت تزریق المان‌های اسکلتون به دام (DOM)
+// تابع جهت تزریق المان‌های اسکلتون به دام (DOM)
 function renderSkeletonLoaders() {
     matchListContainer.innerHTML = '';
     
@@ -136,10 +136,13 @@ function renderAllMatches() {
                 ? `<span class="live-status"><i class="fas fa-circle" style="font-size: 7px;"></i> درحال پخش</span>`
                 : `<span class="match-time">${match.time}</span>`;
 
+            // بررسی وضعیت باشگاهی برای اعمال استایل بزرگتر و بدون مرز دایره‌ای
+            const isClubClass = match.isClub ? 'is-club' : '';
+
             div.innerHTML = `
                 <div class="team-side" style="justify-content: flex-end;">
                     <span class="team-name">${match.team1}</span>
-                    <div class="flag-wrapper">
+                    <div class="flag-wrapper ${isClubClass}">
                         <div class="flag-backdrop" style="background-image: url('${match.team1Image}');" onerror="this.style.display='none'"></div>
                         <img class="flag-front" src="${match.team1Image}" alt="${match.team1}" onerror="this.src='https://via.placeholder.com/32/333/fff?text=?'">
                     </div>
@@ -151,7 +154,7 @@ function renderAllMatches() {
                 </div>
                 
                 <div class="team-side" style="justify-content: flex-start;">
-                    <div class="flag-wrapper">
+                    <div class="flag-wrapper ${isClubClass}">
                         <div class="flag-backdrop" style="background-image: url('${match.team2Image}');" onerror="this.style.display='none'"></div>
                         <img class="flag-front" src="${match.team2Image}" alt="${match.team2}" onerror="this.src='https://via.placeholder.com/32/333/fff?text=?'">
                     </div>
@@ -182,8 +185,21 @@ function initCountdown() {
         return;
     }
 
-    document.getElementById('countdown-title').textContent = `بازی مهم بعدی: ${targetMatch.team1} - ${targetMatch.team2}`;
+    // تغییر این بخش به متن ثابت درخواستی شما
+    document.getElementById('countdown-title').textContent = 'بازی مهم بعدی';
     
+    // کانتینرهای پرچم شمارش معکوس برای اعمال کلاس باشگاهی
+    const cdFlag1Container = document.getElementById('cd-flag1-container');
+    const cdFlag2Container = document.getElementById('cd-flag2-container');
+
+    if (targetMatch.isClub) {
+        cdFlag1Container.classList.add('is-club');
+        cdFlag2Container.classList.add('is-club');
+    } else {
+        cdFlag1Container.classList.remove('is-club');
+        cdFlag2Container.classList.remove('is-club');
+    }
+
     // پرچم تیم اول
     const img1 = document.getElementById('cd-flag1');
     const blur1 = document.getElementById('cd-flag1-blur');
