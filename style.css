@@ -218,6 +218,7 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 2;
+    transition: width 0.2s ease, height 0.2s ease;
 }
 
 .cd-flag-backdrop {
@@ -296,6 +297,7 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 2;
+    transition: width 0.2s ease, height 0.2s ease;
 }
 
 .flag-backdrop {
@@ -525,7 +527,7 @@ body {
 }
 
 /* ===================================================
-   👈 استایل‌های جدید مربوط به اسکلتون لودینگ (Skeleton Loading)
+   استایل‌های مربوط به اسکلتون لودینگ (Skeleton Loading)
    =================================================== */
 .skeleton-item {
     background-color: var(--card-color);
@@ -573,4 +575,47 @@ body {
 @keyframes skeleton-load {
     0% { background-position: 200% 0; }
     100% { background-position: -200% 0; }
+}
+
+/* ===================================================
+   ویژگی‌های اختصاصی مسابقات باشگاهی (جدید)
+   =================================================== */
+
+/* افزایش ابعاد کادر لوگوهای باشگاهی برای برجستگی بیشتر */
+.flag-wrapper.is-club {
+    width: 40px;
+    height: 40px;
+}
+
+.cd-flag-wrapper.is-club {
+    width: 44px;
+    height: 44px;
+}
+
+/* حذف فرم دایره‌ای روی تصویر اصلی لوگوها بدون بهم ریختن استایل */
+.flag-wrapper.is-club .flag-front,
+.cd-flag-wrapper.is-club .cd-flag-front {
+    border-radius: 0 !important;
+    object-fit: contain !important;
+    background-color: transparent !important;
+    border: none !important;
+}
+
+/* نگهداری ساختار دایره‌ای و تاری (blur) پس‌زمینه تصویر */
+.flag-wrapper.is-club .flag-backdrop,
+.cd-flag-wrapper.is-club .cd-flag-backdrop {
+    border-radius: 50% !important;
+    display: block !important;
+}
+
+/* کنترل رسپانسیو ابعاد کادر لوگوی باشگاهی روی گوشی‌های موبایل */
+@media (max-width: 480px) {
+    .flag-wrapper.is-club {
+        width: 34px;
+        height: 34px;
+    }
+    .cd-flag-wrapper.is-club {
+        width: 36px;
+        height: 36px;
+    }
 }
