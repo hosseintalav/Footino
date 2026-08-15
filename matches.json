@@ -1,180 +1,17 @@
 [
   {
-    "date": "2026-08-09",
-    "time": "00:00",
-    "team1": "اینترمیامی",
-    "team1Image": "assets/logo/mls/inter-miami-cf.png",
-    "team2": "مونتری",
-    "team2Image": "assets/logo/no-image.png",
-    "league": "لیگ کاپ کونکاکوف",
-    "isClub": true
-  },
-  {
-    "date": "2026-08-09",
-    "time": "14:30",
-    "team1": "جوهور دارالتعظیم",
-    "team1Image": "assets/logo/no-image.png",
-    "team2": "چلسی",
-    "team2Image": "assets/logo/premier-league/chelsea.png",
-    "league": "دوستانه باشگاهی",
-    "isClub": true
-  },
-  {
-    "date": "2026-08-09",
-    "time": "14:30",
-    "team1": "منچسترسیتی",
-    "team1Image": "assets/logo/premier-league/manchester-city.png",
-    "team2": "اتلتیکو مادرید",
-    "team2Image": "assets/logo/laliga/atletico-madrid.png",
-    "league": "دوستانه باشگاهی",
-    "isClub": true,
-    "countdown": true
-  },
-  {
-    "date": "2026-08-09",
-    "time": "16:30",
-    "team1": "آرسنال",
-    "team1Image": "assets/logo/premier-league/arsenal.png",
-    "team2": "دورتموند",
-    "team2Image": "assets/logo/bundesliga/dortmund.png",
-    "league": "دوستانه باشگاهی",
-    "isClub": true,
-    "countdown": true
-  },
-  {
-    "date": "2026-08-09",
-    "time": "17:00",
-    "team1": "لیورپول",
-    "team1Image": "assets/logo/premier-league/liverpool.png",
-    "team2": "موناکو",
-    "team2Image": "assets/logo/ligue-1/monaco.png",
-    "league": "دوستانه باشگاهی",
-    "isClub": true,
-    "countdown": true
-  },
-  {
-    "date": "2026-08-11",
-    "time": "13:30",
-    "team1": "یوونتوس",
-    "team1Image": "assets/logo/serie-a/juventus.png",
-    "team2": "پالرمو",
-    "team2Image": "assets/logo/no-image.png",
-    "league": "دوستانه باشگاهی",
-    "isClub": true
-  },
-  {
-    "date": "2026-08-11",
-    "time": "19:30",
-    "team1": "الاتحاد",
-    "team1Image": "assets/logo/saudi-pro-league/al-ittihad.png",
-    "team2": "الجزیره",
-    "team2Image": "assets/logo/no-image.png",
-    "league": "لیگ نخبگان آسیا",
-    "isClub": true
-  },
-  {
-    "date": "2026-08-11",
-    "time": "22:30",
-    "team1": "فنرباغچه",
-    "team1Image": "assets/logo/other/fenerbahce.png",
-    "team2": "اشتورم گراتس",
-    "team2Image": "assets/logo/no-image.png",
-    "league": "لیگ قهرمانان اروپا",
-    "isClub": true
-  },
-  {
-    "date": "2026-08-11",
-    "time": "22:30",
-    "team1": "لیون",
-    "team1Image": "assets/logo/ligue-1/lyon.png",
-    "team2": "اسپارتا پراگ",
-    "team2Image": "assets/logo/no-image.png",
-    "league": "لیگ قهرمانان اروپا",
-    "isClub": true
-  },
-  {
-    "date": "2026-08-12",
-    "time": "19:45",
-    "team1": "نیوکاسل",
-    "team1Image": "assets/logo/premier-league/newcastle-united.png",
-    "team2": "اورتون",
-    "team2Image": "assets/logo/premier-league/everton.png",
-    "league": "دوستانه باشگاهی",
-    "isClub": true
-  },
-  {
-    "date": "2026-08-12",
-    "time": "22:00",
-    "team1": "آرسنال",
-    "team1Image": "assets/logo/premier-league/arsenal.png",
-    "team2": "کومو",
-    "team2Image": "assets/logo/serie-a/como.png",
-    "league": "دوستانه باشگاهی",
-    "isClub": true
-  },
-  {
-    "date": "2026-08-12",
-    "time": "22:00",
-    "team1": "منچستریونایتد",
-    "team1Image": "assets/logo/premier-league/manchester-united.png",
-    "team2": "لیدز یونایتد",
-    "team2Image": "assets/logo/premier-league/leeds-united.png",
-    "league": "دوستانه باشگاهی",
-    "isClub": true
-  },
-  {
-    "date": "2026-08-12",
-    "time": "22:15",
-    "team1": "ناتینگهام فارست",
-    "team1Image": "assets/logo/premier-league/nottingham-forest.png",
-    "team2": "بایر لورکوزن",
-    "team2Image": "assets/logo/bundesliga/leverkusen.png",
-    "league": "دوستانه باشگاهی",
-    "isClub": true
-  },
-  {
-    "date": "2026-08-12",
-    "time": "22:30",
-    "team1": "پاری سن ژرمن",
-    "team1Image": "assets/logo/ligue-1/psg.png",
-    "team2": "استون ویلا",
-    "team2Image": "assets/logo/premier-league/aston-villa.png",
-    "league": "دوستانه باشگاهی",
-    "isClub": true
-  },
-  {
-    "date": "2026-08-12",
-    "time": "22:30",
-    "team1": "رئال مادرید",
-    "team1Image": "assets/logo/laliga/real-madrid.png",
-    "team2": "دپورتیوو لاکرونیا",
-    "team2Image": "assets/logo/laliga/deportivo-a-coruna.png",
-    "league": "دوستانه باشگاهی",
-    "isClub": true,
-    "countdown": true
-  },
-  {
-    "date": "2026-08-12",
-    "time": "22:30",
-    "team1": "ناپولی",
-    "team1Image": "assets/logo/serie-a/napoli.png",
-    "team2": "آریس",
-    "team2Image": "assets/logo/no-image.png",
-    "league": "دوستانه باشگاهی",
-    "isClub": true
-  },
-  {
-    "date": "2026-08-13",
+    "date": "2026-08-15",
     "time": "16:30",
     "team1": "چلسی",
     "team1Image": "assets/logo/premier-league/chelsea.png",
     "team2": "رئال سوسیداد",
     "team2Image": "assets/logo/laliga/real-sociedad.png",
     "league": "دوستانه باشگاهی",
-    "isClub": true
+    "isClub": true,
+    "countdown": true
   },
   {
-    "date": "2026-08-13",
+    "date": "2026-08-15",
     "time": "17:00",
     "team1": "بایرن مونیخ",
     "team1Image": "assets/logo/bundesliga/bayern-munich.png",
@@ -184,7 +21,17 @@
     "isClub": true
   },
   {
-    "date": "2026-08-13",
+    "date": "2026-08-15",
+    "time": "17:00",
+    "team1": "مونشن گلادباخ",
+    "team1Image": "assets/logo/bundesliga/monchengladbach.png",
+    "team2": "استون ویلا",
+    "team2Image": "assets/logo/premier-league/aston-villa.png",
+    "league": "دوستانه باشگاهی",
+    "isClub": true
+  },
+  {
+    "date": "2026-08-15",
     "time": "17:30",
     "team1": "نیوکاسل",
     "team1Image": "assets/logo/premier-league/newcastle-united.png",
@@ -194,7 +41,7 @@
     "isClub": true
   },
   {
-    "date": "2026-08-13",
+    "date": "2026-08-15",
     "time": "17:30",
     "team1": "تاتنهام",
     "team1Image": "assets/logo/premier-league/tottenham-hotspur.png",
@@ -204,7 +51,109 @@
     "isClub": true
   },
   {
-    "date": "2026-08-13",
+    "date": "2026-08-15",
+    "time": "17:30",
+    "team1": "لیل",
+    "team1Image": "assets/logo/ligue-1/lille.png",
+    "team2": "اورتون",
+    "team2Image": "assets/logo/premier-league/everton.png",
+    "league": "دوستانه باشگاهی",
+    "isClub": true
+  },
+  {
+    "date": "2026-08-15",
+    "time": "18:15",
+    "team1": "منچستر یونایتد",
+    "team1Image": "assets/logo/premier-league/manchester-united.png",
+    "team2": "میلان",
+    "team2Image": "assets/logo/serie-a/milan.png",
+    "league": "دوستانه باشگاهی",
+    "isClub": true,
+    "countdown": true
+  },
+  {
+    "date": "2026-08-15",
+    "time": "18:30",
+    "team1": "فولام",
+    "team1Image": "assets/logo/premier-league/fulham.png",
+    "team2": "اشتوتگارت",
+    "team2Image": "assets/logo/bundesliga/stuttgart.png",
+    "league": "دوستانه باشگاهی",
+    "isClub": true
+  },
+  {
+    "date": "2026-08-15",
+    "time": "19:00",
+    "team1": "دورتموند",
+    "team1Image": "assets/logo/bundesliga/dortmund.png",
+    "team2": "رم",
+    "team2Image": "assets/logo/serie-a/roma.png",
+    "league": "دوستانه باشگاهی",
+    "isClub": true
+  },
+  {
+    "date": "2026-08-15",
+    "time": "21:00",
+    "team1": "آلاوس",
+    "team1Image": "assets/logo/laliga/alaves.png",
+    "team2": "ختافه",
+    "team2Image": "assets/logo/laliga/getafe.png",
+    "league": "لالیگا اسپانیا",
+    "isClub": true
+  },
+  {
+    "date": "2026-08-15",
+    "time": "21:00",
+    "team1": "اینتر",
+    "team1Image": "assets/logo/serie-a/inter.png",
+    "team2": "رئال بتیس",
+    "team2Image": "assets/logo/laliga/real-betis.png",
+    "league": "دوستانه باشگاهی",
+    "isClub": true,
+    "countdown": true
+  },
+  {
+    "date": "2026-08-15",
+    "time": "23:00",
+    "team1": "سویا",
+    "team1Image": "assets/logo/laliga/sevilla.png",
+    "team2": "رایو وایکانو",
+    "team2Image": "assets/logo/laliga/rayo-vallecano.png",
+    "league": "لالیگا اسپانیا",
+    "isClub": true
+  },
+  {
+    "date": "2026-08-16",
+    "time": "04:00",
+    "team1": "اینترمیامی",
+    "team1Image": "assets/logo/mls/inter-miami-cf.png",
+    "team2": "نشویل",
+    "team2Image": "assets/logo/no-image.png",
+    "league": "لیگ MLS",
+    "isClub": true
+  },
+  {
+    "date": "2026-08-16",
+    "time": "14:00",
+    "team1": "لیورپول",
+    "team1Image": "assets/logo/premier-league/liverpool.png",
+    "team2": "کومو",
+    "team2Image": "assets/logo/serie-a/como.png",
+    "league": "دوستانه باشگاهی",
+    "isClub": true
+  },
+  {
+    "date": "2026-08-16",
+    "time": "16:30",
+    "team1": "ناتینگهام فارست",
+    "team1Image": "assets/logo/premier-league/nottingham-forest.png",
+    "team2": "برست",
+    "team2Image": "assets/logo/ligue-1/brest.png",
+    "league": "دوستانه باشگاهی",
+    "isClub": true
+  },
+  {
+    "date": "2026-08-16",
     "time": "17:30",
     "team1": "آرسنال",
     "team1Image": "assets/logo/premier-league/arsenal.png",
@@ -215,96 +164,179 @@
     "countdown": true
   },
   {
-    "date": "2026-08-13",
-    "time": "18:15",
-    "team1": "منچستریونایتد",
-    "team1Image": "assets/logo/premier-league/manchester-united.png",
-    "team2": "میلان",
-    "team2Image": "assets/logo/serie-a/milan.png",
+    "date": "2026-08-16",
+    "time": "18:00",
+    "team1": "بازل",
+    "team1Image": "assets/logo/no-image.png",
+    "team2": "بارسلونا",
+    "team2Image": "assets/logo/laliga/barcelona.png",
+    "league": "دوستانه باشگاهی",
+    "isClub": true
+  },
+  {
+    "date": "2026-08-16",
+    "time": "18:30",
+    "team1": "ریسینگ سانتاندر",
+    "team1Image": "assets/logo/laliga/racing-santander.png",
+    "team2": "ویارئال",
+    "team2Image": "assets/logo/laliga/villarreal.png",
+    "league": "لالیگا اسپانیا",
+    "isClub": true
+  },
+  {
+    "date": "2026-08-16",
+    "time": "18:30",
+    "team1": "نیوکاسل",
+    "team1Image": "assets/logo/premier-league/newcastle-united.png",
+    "team2": "استراسبورگ",
+    "team2Image": "assets/logo/ligue-1/strasbourg.png",
+    "league": "دوستانه باشگاهی",
+    "isClub": true
+  },
+  {
+    "date": "2026-08-16",
+    "time": "18:30",
+    "team1": "شالکه",
+    "team1Image": "assets/logo/bundesliga/schalke-04.png",
+    "team2": "رئال مادرید",
+    "team2Image": "assets/logo/laliga/real-madrid.png",
     "league": "دوستانه باشگاهی",
     "isClub": true,
     "countdown": true
   },
   {
-    "date": "2026-08-13",
-    "time": "19:00",
-    "team1": "دورتموند",
-    "team1Image": "assets/logo/bundesliga/dortmund.png",
-    "team2": "رم",
-    "team2Image": "assets/logo/serie-a/roma.png",
-    "league": "دوستانه باشگاهی",
-    "isClub": true
-  },
-  {
-    "date": "2026-08-13",
-    "time": "21:00",
-    "team1": "اینتر",
-    "team1Image": "assets/logo/serie-a/inter.png",
-    "team2": "رئال بتیس",
-    "team2Image": "assets/logo/laliga/real-betis.png",
-    "league": "دوستانه باشگاهی",
-    "isClub": true
-  },
-  {
-    "date": "2026-08-13",
-    "time": "22:15",
-    "team1": "بنفیکا",
-    "team1Image": "assets/logo/other/benfica.png",
-    "team2": "هارتس",
-    "team2Image": "assets/logo/no-image.png",
-    "league": "انتخابی لیگ اروپا",
-    "isClub": true
-  },
-  {
-    "date": "2026-08-14",
-    "time": "19:30",
-    "team1": "مارسی",
-    "team1Image": "assets/logo/ligue-1/marseille.png",
-    "team2": "اتلتیکو مادرید",
-    "team2Image": "assets/logo/laliga/atletico-madrid.png",
-    "league": "دوستانه باشگاهی",
-    "isClub": true,
-    "countdown": true
-  },
-  {
-    "date": "2026-08-14",
+    "date": "2026-08-16",
     "time": "20:30",
-    "team1": "نئوم",
-    "team1Image": "assets/logo/saudi-pro-league/neom.png",
-    "team2": "فیحا",
-    "team2Image": "assets/logo/saudi-pro-league/al-fayha.png",
-    "league": "لیگ حرفه‌ای عربستان",
+    "team1": "لیورپول",
+    "team1Image": "assets/logo/premier-league/liverpool.png",
+    "team2": "کومو",
+    "team2Image": "assets/logo/serie-a/como.png",
+    "league": "دوستانه باشگاهی",
     "isClub": true
   },
   {
-    "date": "2026-08-14",
+    "date": "2026-08-16",
+    "time": "20:30",
+    "team1": "اسپانیول",
+    "team1Image": "assets/logo/laliga/espanyol.png",
+    "team2": "لوانته",
+    "team2Image": "assets/logo/laliga/levante.png",
+    "league": "لالیگا اسپانیا",
+    "isClub": true
+  },
+  {
+    "date": "2026-08-16",
+    "time": "22:15",
+    "team1": "پاری سن ژرمن",
+    "team1Image": "assets/logo/ligue-1/psg.png",
+    "team2": "لانس",
+    "team2Image": "assets/logo/ligue-1/lens.png",
+    "league": "سوپر کاپ فرانسه",
+    "isClub": true,
+    "countdown": true
+  },
+  {
+    "date": "2026-08-16",
+    "time": "23:00",
+    "team1": "سلتاویگو",
+    "team1Image": "assets/logo/laliga/celta-vigo.png",
+    "team2": "اوساسونا",
+    "team2Image": "assets/logo/laliga/osasuna.png",
+    "league": "لالیگا اسپانیا",
+    "isClub": true
+  },
+  {
+    "date": "2026-08-17",
+    "time": "19:30",
+    "team1": "الاهلی عربستان",
+    "team1Image": "assets/logo/saudi-pro-league/al-ahli.png",
+    "team2": "الانوار",
+    "team2Image": "assets/logo/no-image.png",
+    "league": "جام حذفی عربستان",
+    "isClub": true
+  },
+  {
+    "date": "2026-08-17",
     "time": "21:30",
     "team1": "الهلال",
     "team1Image": "assets/logo/saudi-pro-league/al-hilal.png",
-    "team2": "الفیصلی",
-    "team2Image": "assets/logo/saudi-pro-league/al-faisaly.png",
+    "team2": "الرائد",
+    "team2Image": "assets/logo/no-image.png",
+    "league": "جام حذفی عربستان",
+    "isClub": true,
+    "countdown": true
+  },
+  {
+    "date": "2026-08-17",
+    "time": "22:30",
+    "team1": "دپورتیوو لاکرونیا",
+    "team1Image": "assets/logo/laliga/deportivo-a-coruna.png",
+    "team2": "الچه",
+    "team2Image": "assets/logo/laliga/elche.png",
+    "league": "لالیگا اسپانیا",
+    "isClub": true
+  },
+  {
+    "date": "2026-08-18",
+    "time": "19:30",
+    "team1": "بایرن مونیخ",
+    "team1Image": "assets/logo/bundesliga/bayern-munich.png",
+    "team2":"هایدنهایم",
+    "team2Image": "assets/logo/no-image.png",
+    "league": "دوستانه باشگاهی",
+    "isClub": true
+  },
+  {
+    "date": "2026-08-18",
+    "time": "19:45",
+    "team1": "الاتحاد",
+    "team1Image": "assets/logo/saudi-pro-league/al-ittihad.png",
+    "team2": "النجمه",
+    "team2Image": "assets/logo/no-image.png",
+    "league": "جام حذفی عربستان",
+    "isClub": true
+  },
+  {
+    "date": "2026-08-18",
+    "time": "21:30",
+    "team1": "النصر",
+    "team1Image": "assets/logo/saudi-pro-league/al-nassr.png",
+    "team2": "الدرعیه",
+    "team2Image": "assets/logo/saudi-pro-league/al-diriyah.png",
+    "league": "جام حذفی عربستان",
+    "isClub": true,
+    "countdown": true
+  },
+  {
+    "date": "2026-08-19",
+    "time": "22:30",
+    "team1": "اتلتیکو مادرید",
+    "team1Image": "assets/logo/laliga/atletico-madrid.png",
+    "team2": "مالاگا",
+    "team2Image": "assets/logo/no-image.png",
+    "league": "دوستانه باشگاهی",
+    "isClub": true,
+    "countdown": true
+  },
+  {
+    "date": "2026-08-20",
+    "time": "21:30",
+    "team1": "الهلال",
+    "team1Image": "assets/logo/saudi-pro-league/al-hilal.png",
+    "team2": "الفیحا",
+    "team2Image": "assets/logo/saudi-pro-league/al-fayha.png",
     "league": "لیگ حرفه‌ای عربستان",
     "isClub": true,
     "countdown": true
   },
   {
-    "date": "2026-08-14",
-    "time": "21:30",
-    "team1": "الاتفاق",
-    "team1Image": "assets/logo/saudi-pro-league/al-ettifaq.png",
-    "team2": "الریاض",
-    "team2Image": "assets/logo/saudi-pro-league/al-riyadh.png",
-    "league": "لیگ حرفه‌ای عربستان",
-    "isClub": true
-  },
-  {
-    "date": "2026-08-14",
-    "time": "22:15",
-    "team1": "آتالانتا",
-    "team1Image": "assets/logo/serie-a/atalanta.png",
-    "team2": "اتلتیک بیلبائو",
-    "team2Image": "assets/logo/laliga/athletic-bilbao.png",
-    "league": "دوستانه باشگاهی",
+    "date": "2026-08-20",
+    "time": "22:30",
+    "team1": "رایو وایکانو",
+    "team1Image": "assets/logo/laliga/rayo-vallecano.png",
+    "team2": "دپورتیوو لاکرونیا",
+    "team2Image": "assets/logo/laliga/deportivo-a-coruna.png",
+    "league": "لالیگا اسپانیا",
     "isClub": true
   }
 ]
