@@ -2,6 +2,8 @@ const matchListContainer = document.getElementById('match-list');
 const countdownBanner = document.getElementById('countdown-banner');
 let allMatches = [];
 let countdownInterval = null;
+let currentCountdownMatchId = null;
+let isHighlighting = false; // جلوگیری از اجرای مجدد انیمیشن
 
 // --- ۱. توابع مربوط به تاریخ و زمان ---
 function getDateString(date) {
@@ -34,22 +36,23 @@ function getMatchDateTime(match) {
     return new Date(`${match.date}T${match.time}:00`);
 }
 
+function getMatchId(match) {
+    return `${match.date}_${match.time}_${match.team1}_${match.team2}`;
+}
+
 // --- ۲. بارگذاری و رندر کردن مسابقات ---
 async function loadMatches() {
-    // نمایش کارت‌های اسکلتون پیش از ریکوئست زدن به فایل json
     renderSkeletonLoaders();
 
     try {
         const response = await fetch('matches.json');
         allMatches = await response.json();
         
-        // تاخیر کوتاه برای نمایش نرم‌تر افکت اسکلتون
         await new Promise(resolve => setTimeout(resolve, 400));
 
         renderAllMatches();
         initCountdown();
         
-        // بازخوانی وضعیت‌ها هر ۱۰ ثانیه برای کنترل حذف بازی‌ها بعد از ۲ ساعت
         setInterval(() => {
             renderAllMatches();
             initCountdown();
@@ -61,11 +64,9 @@ async function loadMatches() {
     }
 }
 
-// تابع جهت تزریق المان‌های اسکلتون به دام (DOM)
 function renderSkeletonLoaders() {
     matchListContainer.innerHTML = '';
     
-    // هدر تاریخ فرضی
     const dateHeader = document.createElement('div');
     dateHeader.className = 'date-header skeleton-element';
     dateHeader.style.width = '100px';
@@ -73,7 +74,6 @@ function renderSkeletonLoaders() {
     dateHeader.style.marginBottom = '15px';
     matchListContainer.appendChild(dateHeader);
 
-    // ساخت ۳ کارت بازی اسکلتون
     for (let i = 0; i < 3; i++) {
         const div = document.createElement('div');
         div.className = 'skeleton-item';
@@ -99,7 +99,6 @@ function renderAllMatches() {
     matchListContainer.innerHTML = '';
     const now = new Date();
 
-    // فیلتر و حذف مسابقاتی که دقیقاً ۲ ساعت از شروع آن‌ها گذشته است
     const filteredMatches = allMatches.filter(match => {
         const matchTime = getMatchDateTime(match);
         const timeDiff = now - matchTime;
@@ -126,9 +125,11 @@ function renderAllMatches() {
         matchListContainer.appendChild(dateHeader);
 
         matches.forEach(match => {
+            const matchId = getMatchId(match);
             const div = document.createElement('div');
             div.className = 'match-item';
-            
+            div.dataset.matchId = matchId;
+
             const matchTime = getMatchDateTime(match);
             const isLive = now >= matchTime && (now - matchTime) < 2 * 60 * 60 * 1000;
             
@@ -136,7 +137,6 @@ function renderAllMatches() {
                 ? `<span class="live-status"><i class="fas fa-circle" style="font-size: 7px;"></i> درحال پخش</span>`
                 : `<span class="match-time">${match.time}</span>`;
 
-            // بررسی وضعیت باشگاهی برای اعمال استایل بزرگتر و بدون مرز دایره‌ای
             const isClubClass = match.isClub ? 'is-club' : '';
 
             div.innerHTML = `
@@ -166,29 +166,59 @@ function renderAllMatches() {
     }
 }
 
+// --- تابع اسکرول به کارت مسابقه با انیمیشن نرم (فقط با کلیک) ---
+function scrollToMatchCard(matchId) {
+    if (isHighlighting) return; // اگر انیمیشن در حال اجراست، اجرا نشه
+    
+    const targetCard = document.querySelector(`.match-item[data-match-id="${matchId}"]`);
+    if (targetCard) {
+        // تنظیم فلگ برای جلوگیری از اجرای مجدد
+        isHighlighting = true;
+        
+        const headerHeight = document.querySelector('.main-header')?.offsetHeight || 0;
+        const bannerHeight = document.getElementById('countdown-banner')?.offsetHeight || 0;
+        const cardTop = targetCard.getBoundingClientRect().top + window.pageYOffset;
+        const offset = headerHeight + bannerHeight + 20;
+        
+        window.scrollTo({
+            top: cardTop - offset,
+            behavior: 'smooth'
+        });
+
+        targetCard.classList.add('highlight-match');
+        
+        setTimeout(() => {
+            targetCard.classList.remove('highlight-match');
+            // بعد از اتمام انیمیشن، فلگ رو ریست می‌کنیم
+            setTimeout(() => {
+                isHighlighting = false;
+            }, 100);
+        }, 1500);
+    }
+}
+
 // --- ۳. سیستم تایمر و مدیریت پرچم‌های شمارش معکوس ---
 function initCountdown() {
     if (countdownInterval) clearInterval(countdownInterval);
 
     const nowTime = new Date().getTime();
 
-    // یافتن بازی دارای تگ countdown مشروط بر اینکه هنوز شروع نشده باشد
     const targetMatch = allMatches.find(match => {
         if (!match.countdown) return false;
         const matchStartTime = getMatchDateTime(match).getTime();
         return matchStartTime > nowTime; 
     });
 
-    // اگر بازی وجود نداشت یا زمانش رسیده بود، بنر کلاً پنهان می‌شود
     if (!targetMatch) {
         countdownBanner.style.display = 'none';
+        currentCountdownMatchId = null;
         return;
     }
 
-    // تغییر این بخش به متن ثابت درخواستی شما
+    currentCountdownMatchId = getMatchId(targetMatch);
+
     document.getElementById('countdown-title').textContent = 'بازی مهم بعدی';
     
-    // کانتینرهای پرچم شمارش معکوس برای اعمال کلاس باشگاهی
     const cdFlag1Container = document.getElementById('cd-flag1-container');
     const cdFlag2Container = document.getElementById('cd-flag2-container');
 
@@ -200,7 +230,6 @@ function initCountdown() {
         cdFlag2Container.classList.remove('is-club');
     }
 
-    // پرچم تیم اول
     const img1 = document.getElementById('cd-flag1');
     const blur1 = document.getElementById('cd-flag1-blur');
     img1.src = targetMatch.team1Image;
@@ -208,7 +237,6 @@ function initCountdown() {
     blur1.style.backgroundImage = `url('${targetMatch.team1Image}')`;
     img1.onerror = () => img1.src = 'https://via.placeholder.com/32/333/fff?text=?';
 
-    // پرچم تیم دوم
     const img2 = document.getElementById('cd-flag2');
     const blur2 = document.getElementById('cd-flag2-blur');
     img2.src = targetMatch.team2Image;
@@ -217,13 +245,17 @@ function initCountdown() {
     img2.onerror = () => img2.src = 'https://via.placeholder.com/32/333/fff?text=?';
 
     countdownBanner.style.display = 'block';
+    
+    // افزودن رویداد کلیک به بنر شمارش معکوس
+    countdownBanner.removeEventListener('click', handleCountdownClick);
+    countdownBanner.addEventListener('click', handleCountdownClick);
+
     const targetTime = getMatchDateTime(targetMatch).getTime();
 
     function updateTimer() {
         const now = new Date().getTime();
         let diff = targetTime - now;
 
-        // به محض اینکه زمان بازی رسید و صفر شد، شمارش معکوس کلاً فوراً حذف می‌شود
         if (diff <= 0) {
             document.getElementById('cd-days').textContent = '00';
             document.getElementById('cd-hours').textContent = '00';
@@ -232,6 +264,7 @@ function initCountdown() {
             
             countdownBanner.style.display = 'none'; 
             clearInterval(countdownInterval); 
+            currentCountdownMatchId = null;
             renderAllMatches(); 
             return;
         }
@@ -247,7 +280,6 @@ function initCountdown() {
 
         const seconds = Math.floor(diff / 1000);
 
-        // انتساب مقادیر به المان‌های HTML (ترتیب درست از چپ به راست)
         document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
         document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
         document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
@@ -256,6 +288,24 @@ function initCountdown() {
 
     updateTimer();
     countdownInterval = setInterval(updateTimer, 1000);
+}
+
+// --- تابع مدیریت کلیک روی بنر شمارش معکوس ---
+function handleCountdownClick() {
+    if (currentCountdownMatchId && !isHighlighting) {
+        // بررسی وجود کارت در DOM
+        const cardExists = document.querySelector(`.match-item[data-match-id="${currentCountdownMatchId}"]`);
+        if (!cardExists) {
+            // اگر کارت وجود نداشت، رندر مجدد انجام بده و بعد اسکرول کن
+            renderAllMatches();
+            // بعد از رندر، دوباره تلاش کن
+            setTimeout(() => {
+                scrollToMatchCard(currentCountdownMatchId);
+            }, 100);
+        } else {
+            scrollToMatchCard(currentCountdownMatchId);
+        }
+    }
 }
 
 // --- ۴. مدیریت تم ---
