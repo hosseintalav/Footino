@@ -210,7 +210,7 @@
     "team1": "اینترمیامی",
     "team1Image": "assets/logo/mls/inter-miami-cf.football-logos.cc.png",
     "team2": "مونترال",
-    "team2Image": "assets/logo/mls/cf-montreal.png",
+    "team2Image": "assets/logo/no-image.png",
     "league": "لیگ MLS",
     "isClub": true
   },
@@ -240,7 +240,7 @@
     "team1": "رئال مادرید",
     "team1Image": "assets/logo/laliga/real-madrid.png",
     "team2": "مالاگا",
-    "team2Image": "assets/logo/no-image.png",
+    "team2Image": "assets/logo/laliga/malaga.png",
     "league": "لالیگا اسپانیا",
     "isClub": true,
     "countdown": true
