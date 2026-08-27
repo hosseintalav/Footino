@@ -3,7 +3,7 @@ const countdownBanner = document.getElementById('countdown-banner');
 let allMatches = [];
 let countdownInterval = null;
 let currentCountdownMatchId = null;
-let isHighlighting = false; // جلوگیری از اجرای مجدد انیمیشن
+let isHighlighting = false;
 
 // --- ۱. توابع مربوط به تاریخ و زمان ---
 function getDateString(date) {
@@ -38,6 +38,29 @@ function getMatchDateTime(match) {
 
 function getMatchId(match) {
     return `${match.date}_${match.time}_${match.team1}_${match.team2}`;
+}
+
+// --- تابع برای دریافت لوگوی پیش‌فرض مناسب با تم ---
+function getDefaultLogo() {
+    const theme = document.documentElement.getAttribute('data-theme');
+    if (theme === 'light') {
+        return 'assets/logo/no-image-black.png';
+    } else {
+        return 'assets/logo/no-image.png';
+    }
+}
+
+// --- تابع بررسی اینکه آیا تصویر لوگوی پیش‌فرض است ---
+function isDefaultLogoImage(src) {
+    return src && (src.includes('no-image.png') || src.includes('no-image-black.png'));
+}
+
+// --- تابع دریافت لوگوی مناسب برای هر تیم ---
+function getTeamLogo(logoPath) {
+    if (isDefaultLogoImage(logoPath)) {
+        return getDefaultLogo();
+    }
+    return logoPath;
 }
 
 // --- ۲. بارگذاری و رندر کردن مسابقات ---
@@ -98,6 +121,7 @@ function renderSkeletonLoaders() {
 function renderAllMatches() {
     matchListContainer.innerHTML = '';
     const now = new Date();
+    const defaultLogo = getDefaultLogo();
 
     const filteredMatches = allMatches.filter(match => {
         const matchTime = getMatchDateTime(match);
@@ -139,12 +163,17 @@ function renderAllMatches() {
 
             const isClubClass = match.isClub ? 'is-club' : '';
 
+            // دریافت لوگوی مناسب برای هر تیم
+            const team1Logo = getTeamLogo(match.team1Image);
+            const team2Logo = getTeamLogo(match.team2Image);
+
             div.innerHTML = `
                 <div class="team-side" style="justify-content: flex-end;">
                     <span class="team-name">${match.team1}</span>
                     <div class="flag-wrapper ${isClubClass}">
-                        <div class="flag-backdrop" style="background-image: url('${match.team1Image}');" onerror="this.style.display='none'"></div>
-                        <img class="flag-front" src="${match.team1Image}" alt="${match.team1}" onerror="this.src='https://via.placeholder.com/32/333/fff?text=?'">
+                        <div class="flag-backdrop" style="background-image: url('${team1Logo}');" onerror="this.style.display='none'"></div>
+                        <img class="flag-front" src="${team1Logo}" alt="${match.team1}" 
+                             onerror="this.src='${defaultLogo}';">
                     </div>
                 </div>
                 
@@ -155,8 +184,9 @@ function renderAllMatches() {
                 
                 <div class="team-side" style="justify-content: flex-start;">
                     <div class="flag-wrapper ${isClubClass}">
-                        <div class="flag-backdrop" style="background-image: url('${match.team2Image}');" onerror="this.style.display='none'"></div>
-                        <img class="flag-front" src="${match.team2Image}" alt="${match.team2}" onerror="this.src='https://via.placeholder.com/32/333/fff?text=?'">
+                        <div class="flag-backdrop" style="background-image: url('${team2Logo}');" onerror="this.style.display='none'"></div>
+                        <img class="flag-front" src="${team2Logo}" alt="${match.team2}" 
+                             onerror="this.src='${defaultLogo}';">
                     </div>
                     <span class="team-name">${match.team2}</span>
                 </div>
@@ -168,11 +198,10 @@ function renderAllMatches() {
 
 // --- تابع اسکرول به کارت مسابقه با انیمیشن نرم (فقط با کلیک) ---
 function scrollToMatchCard(matchId) {
-    if (isHighlighting) return; // اگر انیمیشن در حال اجراست، اجرا نشه
+    if (isHighlighting) return;
     
     const targetCard = document.querySelector(`.match-item[data-match-id="${matchId}"]`);
     if (targetCard) {
-        // تنظیم فلگ برای جلوگیری از اجرای مجدد
         isHighlighting = true;
         
         const headerHeight = document.querySelector('.main-header')?.offsetHeight || 0;
@@ -189,7 +218,6 @@ function scrollToMatchCard(matchId) {
         
         setTimeout(() => {
             targetCard.classList.remove('highlight-match');
-            // بعد از اتمام انیمیشن، فلگ رو ریست می‌کنیم
             setTimeout(() => {
                 isHighlighting = false;
             }, 100);
@@ -202,6 +230,7 @@ function initCountdown() {
     if (countdownInterval) clearInterval(countdownInterval);
 
     const nowTime = new Date().getTime();
+    const defaultLogo = getDefaultLogo();
 
     const targetMatch = allMatches.find(match => {
         if (!match.countdown) return false;
@@ -232,21 +261,26 @@ function initCountdown() {
 
     const img1 = document.getElementById('cd-flag1');
     const blur1 = document.getElementById('cd-flag1-blur');
-    img1.src = targetMatch.team1Image;
+    const team1Logo = getTeamLogo(targetMatch.team1Image);
+    img1.src = team1Logo;
     img1.alt = targetMatch.team1;
-    blur1.style.backgroundImage = `url('${targetMatch.team1Image}')`;
-    img1.onerror = () => img1.src = 'https://via.placeholder.com/32/333/fff?text=?';
+    blur1.style.backgroundImage = `url('${team1Logo}')`;
+    img1.onerror = () => {
+        img1.src = defaultLogo;
+    };
 
     const img2 = document.getElementById('cd-flag2');
     const blur2 = document.getElementById('cd-flag2-blur');
-    img2.src = targetMatch.team2Image;
+    const team2Logo = getTeamLogo(targetMatch.team2Image);
+    img2.src = team2Logo;
     img2.alt = targetMatch.team2;
-    blur2.style.backgroundImage = `url('${targetMatch.team2Image}')`;
-    img2.onerror = () => img2.src = 'https://via.placeholder.com/32/333/fff?text=?';
+    blur2.style.backgroundImage = `url('${team2Logo}')`;
+    img2.onerror = () => {
+        img2.src = defaultLogo;
+    };
 
     countdownBanner.style.display = 'block';
     
-    // افزودن رویداد کلیک به بنر شمارش معکوس
     countdownBanner.removeEventListener('click', handleCountdownClick);
     countdownBanner.addEventListener('click', handleCountdownClick);
 
@@ -293,12 +327,9 @@ function initCountdown() {
 // --- تابع مدیریت کلیک روی بنر شمارش معکوس ---
 function handleCountdownClick() {
     if (currentCountdownMatchId && !isHighlighting) {
-        // بررسی وجود کارت در DOM
         const cardExists = document.querySelector(`.match-item[data-match-id="${currentCountdownMatchId}"]`);
         if (!cardExists) {
-            // اگر کارت وجود نداشت، رندر مجدد انجام بده و بعد اسکرول کن
             renderAllMatches();
-            // بعد از رندر، دوباره تلاش کن
             setTimeout(() => {
                 scrollToMatchCard(currentCountdownMatchId);
             }, 100);
@@ -321,6 +352,10 @@ function applyTheme(theme) {
         themeIcon.className = 'fas fa-moon theme-icon';
     }
     localStorage.setItem('theme', theme);
+    
+    // رندر مجدد برای به‌روزرسانی لوگوها
+    renderAllMatches();
+    initCountdown();
 }
 
 function loadTheme() {
