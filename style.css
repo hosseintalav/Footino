@@ -29,6 +29,8 @@ body {
     --glass-text: #ffffff;
     --skeleton-bg: #333333;
     --skeleton-shimmer: linear-gradient(90deg, #333333 25%, #444444 50%, #333333 75%);
+    --highlight-border: #666666;
+    --highlight-shadow: rgba(255, 255, 255, 0.05);
 }
 
 [data-theme="light"] {
@@ -43,6 +45,8 @@ body {
     --glass-text: #222222;
     --skeleton-bg: #E0E0E0;
     --skeleton-shimmer: linear-gradient(90deg, #E0E0E0 25%, #ECECEC 50%, #E0E0E0 75%);
+    --highlight-border: #999999;
+    --highlight-shadow: rgba(0, 0, 0, 0.05);
 }
 
 body {
@@ -136,6 +140,7 @@ body {
     margin: 0 auto;
     padding: 10px 15px;
     display: none;
+    cursor: pointer;
 }
 
 .countdown-inner {
@@ -150,7 +155,7 @@ body {
     justify-content: space-between;
     align-items: center;
     direction: rtl;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .countdown-center-content {
@@ -177,7 +182,7 @@ body {
     display: flex;
     align-items: center;
     gap: 4px;
-    direction: ltr; 
+    direction: ltr;
 }
 
 .time-segment {
@@ -230,9 +235,9 @@ body {
     border-radius: 50%;
     background-size: cover;
     background-position: center;
-    filter: blur(20px) brightness(1.4); 
+    filter: blur(20px) brightness(1.4);
     opacity: 1;
-    transform: scale(2.9); 
+    transform: scale(2.9);
     z-index: 1;
     pointer-events: none;
 }
@@ -617,5 +622,28 @@ body {
     .cd-flag-wrapper.is-club {
         width: 36px;
         height: 36px;
+    }
+}
+
+/* ===================================================
+   استایل هایلایت برای کارت مسابقه هدف (اسکرول از شمارش معکوس)
+   با border خاکستری و انیمیشن ملایم
+   =================================================== */
+.match-item.highlight-match {
+    animation: highlightPulse 0.3s ease 1;
+    border: 2px solid var(--highlight-border) !important;
+    box-shadow: 0 0 25px var(--highlight-shadow), 0 2px 5px var(--shadow-color) !important;
+}
+
+@keyframes highlightPulse {
+    0% { 
+        transform: scale(1);
+    }
+    50% { 
+        transform: scale(1.015);
+        box-shadow: 0 0 35px var(--highlight-shadow), 0 2px 5px var(--shadow-color) !important;
+    }
+    100% { 
+        transform: scale(1);
     }
 }
