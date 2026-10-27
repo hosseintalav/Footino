@@ -1,93 +1,12 @@
 [
   {
-    "date": "2026-10-24",
-    "time": "17:30",
-    "team1": "کاونتری سیتی",
-    "team1Image": "assets/logo/premier-league/coventry-city.png",
-    "team2": "فولام",
-    "team2Image": "assets/logo/premier-league/fulham.png",
-    "league": "لیگ برتر انگلیس",
-    "isClub": true
-  },
-  {
-    "date": "2026-10-24",
-    "time": "20:00",
-    "team1": "چلسی",
-    "team1Image": "assets/logo/premier-league/chelsea.png",
-    "team2": "تاتنهام",
-    "team2Image": "assets/logo/premier-league/tottenham-hotspur.png",
-    "league": "لیگ برتر انگلیس",
-    "isClub": true,
-    "countdown": true
-  },
-  {
-    "date": "2026-10-24",
-    "time": "22:30",
-    "team1": "اتلتیکو مادرید",
-    "team1Image": "assets/logo/laliga/atletico-madrid.png",
-    "team2": "دپورتیوو لاکرونیا",
-    "team2Image": "assets/logo/laliga/deportivo-a-coruna.png",
-    "league": "لالیگا اسپانیا",
-    "isClub": true
-  },
-  {
-    "date": "2026-10-24",
-    "time": "19:30",
-    "team1": "رم",
-    "team1Image": "assets/logo/serie-a/roma.png",
-    "team2": "ناپولی",
-    "team2Image": "assets/logo/serie-a/napoli.png",
-    "league": "سری آ ایتالیا",
-    "isClub": true
-  },
-  {
-    "date": "2026-10-24",
-    "time": "20:00",
-    "team1": "دورتموند",
-    "team1Image": "assets/logo/bundesliga/dortmund.png",
-    "team2": "آینتراخت فرانکفورت",
-    "team2Image": "assets/logo/bundesliga/eintracht-frankfurt.png",
-    "league": "بوندسلیگا آلمان",
-    "isClub": true
-  },
-  {
-    "date": "2026-10-25",
-    "time": "17:30",
-    "team1": "منچستر یونایتد",
-    "team1Image": "assets/logo/premier-league/manchester-united.png",
-    "team2": "بورنموث",
-    "team2Image": "assets/logo/premier-league/bournemouth.png",
-    "league": "لیگ برتر انگلیس",
-    "isClub": true
-  },
-  {
-    "date": "2026-10-25",
-    "time": "17:30",
-    "team1": "کریستال پالاس",
-    "team1Image": "assets/logo/premier-league/crystal-palace.png",
-    "team2": "نیوکاسل",
-    "team2Image": "assets/logo/premier-league/newcastle-united.png",
-    "league": "لیگ برتر انگلیس",
-    "isClub": true
-  },
-  {
-    "date": "2026-10-25",
-    "time": "21:00",
-    "team1": "رئال سوسیداد",
-    "team1Image": "assets/logo/laliga/real-sociedad.png",
-    "team2": "لوانته",
-    "team2Image": "assets/logo/laliga/levante.png",
-    "league": "لالیگا اسپانیا",
-    "isClub": true
-  },
-  {
-    "date": "2026-10-25",
-    "time": "23:30",
+    "date": "2026-10-28",
+    "time": "01:05",
     "team1": "بارسلونا",
     "team1Image": "assets/logo/laliga/barcelona.png",
-    "team2": "رئال مادرید",
-    "team2Image": "assets/logo/laliga/real-madrid.png",
-    "league": "لاليگا اسپانیا",
+    "team2": "لیورپول",
+    "team2Image": "assets/logo/premier-league/liverpool.png",
+    "league": "تست",
     "isClub": true,
     "countdown": true
   }
