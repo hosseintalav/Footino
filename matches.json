@@ -1,14 +1,103 @@
 [
   {
     "date": "2026-10-28",
-    "time": "02:00",
-    "team1": "بارسلونا",
-    "team1Image": "assets/logo/laliga/barcelona.png",
-    "team2": "لیورپول",
-    "team2Image": "assets/logo/premier-league/liverpool.png",
-    "league": "تست",
+    "time": "23:15",
+    "team1": "بایرن مونیخ",
+    "team1Image": "assets/logo/bundesliga/bayern-munich.png",
+    "team2": "ماگدبورگ",
+    "team2Image": "assets/logo/no-image.png",
+    "league": "جام حذفی آلمان",
+    "isClub": true
+  },
+  {
+    "date": "2026-10-28",
+    "time": "23:00",
+    "team1": "منچستر سیتی",
+    "team1Image": "assets/logo/premier-league/manchester-city.png",
+    "team2": "برایتون",
+    "team2Image": "assets/logo/premier-league/brighton-&-hove-albion.png",
+    "league": "جام اتحادیه انگلیس",
+    "isClub": true
+  },
+  {
+    "date": "2026-10-28",
+    "time": "23:30",
+    "team1": "لیورپول",
+    "team1Image": "assets/logo/premier-league/liverpool.png",
+    "team2": "چلسی",
+    "team2Image": "assets/logo/premier-league/chelsea.png",
+    "league": "جام اتحادیه انگلیس",
     "isClub": true,
-    "countdown": true,
-    "notify": true
+    "countdown": true
+  },
+  {
+    "date": "2026-10-29",
+    "time": "21:38",
+    "team1": "النصر",
+    "team1Image": "assets/logo/saudi-pro-league/al-nassr.png",
+    "team2": "الخلود",
+    "team2Image": "assets/logo/saudi-pro-league/al-kholood.png",
+    "league": "لیگ حرفه‌ای عربستان",
+    "isClub": true
+  },
+  {
+    "date": "2026-10-28",
+    "time": "03:00",
+    "team1": "اینتر میامی",
+    "team1Image": "assets/logo/mls/inter-miami.png",
+    "team2": "اف‌سی سینسیناتی",
+    "team2Image": "assets/logo/mls/fc-cincinnati.png",
+    "league": "لیگ برتر آمریکا",
+    "isClub": true
+  },
+  {
+    "date": "2026-10-29",
+    "time": "23:15",
+    "team1": "اورتون",
+    "team1Image": "assets/logo/premier-league/everton.png",
+    "team2": "نیوکاسل",
+    "team2Image": "assets/logo/premier-league/newcastle-united.png",
+    "league": "جام اتحادیه انگلیس",
+    "isClub": true
+  },
+  {
+    "date": "2026-10-29",
+    "time": "03:00",
+    "team1": "اینتر میامی",
+    "team1Image": "assets/logo/mls/inter-miami.png",
+    "team2": "اف‌سی سینسیناتی",
+    "team2Image": "assets/logo/mls/fc-cincinnati.png",
+    "league": "لیگ برتر آمریکا",
+    "isClub": true
+  },
+  {
+    "date": "2026-10-30",
+    "time": "23:30",
+    "team1": "ویارئال",
+    "team1Image": "assets/logo/laliga/villarreal.png",
+    "team2": "اسپانیول",
+    "team2Image": "assets/logo/laliga/espanyol.png",
+    "league": "لالیگا اسپانیا",
+    "isClub": true
+  },
+  {
+    "date": "2026-10-30",
+    "time": "21:30",
+    "team1": "لوآور",
+    "team1Image": "assets/logo/no-image.png",
+    "team2": "پاریس سن ژرمن",
+    "team2Image": "assets/logo/ligue-1/psg.png",
+    "league": "لیگ فرانسه",
+    "isClub": true
+  },
+  {
+    "date": "2026-10-30",
+    "time": "17:15",
+    "team1": "ابها",
+    "team1Image": "assets/logo/saudi-pro-league/abha.png",
+    "team2": "الاتحاد عربستان",
+    "team2Image": "assets/logo/saudi-pro-league/al-ittihad.png",
+    "league": "لیگ حرفه‌ای عربستان",
+    "isClub": true
   }
 ]
