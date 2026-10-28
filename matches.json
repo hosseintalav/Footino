@@ -28,7 +28,8 @@
     "team2Image": "assets/logo/premier-league/chelsea.png",
     "league": "جام اتحادیه انگلیس",
     "isClub": true,
-    "countdown": true
+    "countdown": true,
+     "notify": true
   },
   {
     "date": "2026-10-29",
