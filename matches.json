@@ -29,17 +29,18 @@
     "league": "جام اتحادیه انگلیس",
     "isClub": true,
     "countdown": true,
-     "notify": true
+    "notify": true
   },
   {
     "date": "2026-10-29",
-    "time": "21:38",
+    "time": "21:30",
     "team1": "النصر",
     "team1Image": "assets/logo/saudi-pro-league/al-nassr.png",
     "team2": "الخلود",
     "team2Image": "assets/logo/saudi-pro-league/al-kholood.png",
     "league": "لیگ حرفه‌ای عربستان",
-    "isClub": true
+    "isClub": true,
+    "notify": true
   },
   {
     "date": "2026-10-28",
