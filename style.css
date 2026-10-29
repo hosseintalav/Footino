@@ -31,6 +31,8 @@ body {
     --skeleton-shimmer: linear-gradient(90deg, #333333 25%, #444444 50%, #333333 75%);
     --highlight-border: #666666;
     --highlight-shadow: rgba(255, 255, 255, 0.05);
+    --header-blur-filter: blur(7px) brightness(0.6);
+    --header-bg-tint: transparent;
 }
 
 [data-theme="light"] {
@@ -47,6 +49,8 @@ body {
     --skeleton-shimmer: linear-gradient(90deg, #E0E0E0 25%, #ECECEC 50%, #E0E0E0 75%);
     --highlight-border: #999999;
     --highlight-shadow: rgba(0, 0, 0, 0.05);
+    --header-blur-filter: blur(8px) brightness(1.15) saturate(1.1);
+    --header-bg-tint: rgba(255, 255, 255, 0.);
 }
 
 body {
@@ -71,6 +75,13 @@ body {
 
 .worldcup {
     width: 50px;
+    transition: filter var(--transition-duration);
+}
+
+[data-theme="light"] .worldcup {
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.6))
+            drop-shadow(0 0 6px rgba(0, 0, 0, 0.4))
+            drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
 }
 
 .header-bg-blur {
@@ -83,7 +94,23 @@ body {
     background-image: url('assets/image.png');
     background-size: 100% 100%;
     background-position: center;
-    filter: blur(7px) brightness(0.6);
+    filter: var(--header-blur-filter);
+    /* بزرگ کردن کمی برای پنهان کردن حاشیه بلور داخلی لبه‌ها */
+    transform: scale(1.08);
+    transform-origin: center;
+    transition: filter var(--transition-duration);
+}
+
+/* لایه رنگی روی بلور برای تم روشن */
+.header-bg-blur::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--header-bg-tint);
+    transition: background var(--transition-duration);
 }
 
 .header-left, .header-center, .header-right {
@@ -110,8 +137,8 @@ body {
     font-weight: bold;
     margin: 0;
     color: #ffffff;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
     letter-spacing: 2px;
+    transition: color var(--transition-duration), text-shadow var(--transition-duration);
 }
 
 .icon-btn {
@@ -122,11 +149,27 @@ body {
     cursor: pointer;
     padding: 8px;
     border-radius: 50%;
-    transition: transform 0.2s ease, color var(--transition-duration);
+    transition: transform 0.2s ease, color var(--transition-duration), text-shadow var(--transition-duration);
 }
-
 .icon-btn:active {
     transform: scale(0.9);
+}
+
+
+[data-theme="light"] .app-title {
+    text-shadow: 
+        0 0 3px rgba(0, 0, 0, 0.9),
+        0 0 6px rgba(0, 0, 0, 0.7),
+        0 0 10px rgba(0, 0, 0, 0.5),
+        0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="light"] .icon-btn {
+    text-shadow: 
+        0 0 3px rgba(0, 0, 0, 0.9),
+        0 0 6px rgba(0, 0, 0, 0.7),
+        0 0 10px rgba(0, 0, 0, 0.5),
+        0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 /* ---- بنر شمارش معکوس شیشه‌ای چسبان ---- */
@@ -645,4 +688,94 @@ body {
     100% { 
         transform: scale(1);
     }
+}
+
+/* ===================================================
+   انیمیشن تغییر تم دایره‌ای (Circular Reveal)
+   =================================================== */
+
+/* View Transition API - انیمیشن دایره‌ای از گوشه بالا سمت راست */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+    z-index: 1;
+}
+
+::view-transition-new(root) {
+    z-index: 9999;
+    animation: theme-circle-reveal 0.65s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes theme-circle-reveal {
+    from {
+        clip-path: circle(0% at var(--theme-x, 100%) var(--theme-y, 0%));
+    }
+    to {
+        clip-path: circle(150% at var(--theme-x, 100%) var(--theme-y, 0%));
+    }
+}
+
+/* Fallback برای مرورگرهای بدون View Transitions API */
+.theme-fallback-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    clip-path: circle(0% at var(--theme-x, 100%) var(--theme-y, 0%));
+}
+
+.theme-fallback-overlay.animate {
+    animation: theme-circle-fallback 0.65s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes theme-circle-fallback {
+    from {
+        clip-path: circle(0% at var(--theme-x, 100%) var(--theme-y, 0%));
+    }
+    to {
+        clip-path: circle(150% at var(--theme-x, 100%) var(--theme-y, 0%));
+    }
+}
+
+/* ===================================================
+   حالت بدون مسابقه (Empty State)
+   =================================================== */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 40px 20px 80px;
+    text-align: center;
+    min-height: 50vh;
+}
+
+.empty-state-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text-color);
+    opacity: 0.6;
+    margin: 0 0 40px 0;
+}
+
+.empty-state-icon {
+    width: 200px;
+    max-width: 70vw;
+    height: auto;
+    opacity: 0.85;
+}
+
+[data-theme="light"] .empty-state-text {
+    opacity: 0.55;
+}
+
+[data-theme="light"] .empty-state-icon {
+    opacity: 0.75;
 }
