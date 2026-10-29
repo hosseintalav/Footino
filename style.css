@@ -151,11 +151,12 @@ body {
     border-radius: 50%;
     transition: transform 0.2s ease, color var(--transition-duration), text-shadow var(--transition-duration);
 }
+
 .icon-btn:active {
     transform: scale(0.9);
 }
 
-
+/* سایه‌ها فقط در تم روشن */
 [data-theme="light"] .app-title {
     text-shadow: 
         0 0 3px rgba(0, 0, 0, 0.9),
@@ -707,7 +708,7 @@ body {
 
 ::view-transition-new(root) {
     z-index: 9999;
-    animation: theme-circle-reveal 0.65s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: theme-circle-reveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 @keyframes theme-circle-reveal {
@@ -732,7 +733,7 @@ body {
 }
 
 .theme-fallback-overlay.animate {
-    animation: theme-circle-fallback 0.65s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: theme-circle-fallback 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 @keyframes theme-circle-fallback {
@@ -742,6 +743,14 @@ body {
     to {
         clip-path: circle(150% at var(--theme-x, 100%) var(--theme-y, 0%));
     }
+}
+
+/* حذف موقت افکت‌های سنگین هنگام انیمیشن تم */
+html.theme-animating .countdown-inner,
+html.theme-animating .modal-content,
+html.theme-animating .scroll-top-btn {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
 }
 
 /* ===================================================
