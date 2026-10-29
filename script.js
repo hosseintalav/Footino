@@ -348,11 +348,13 @@ function handleCountdownClick() {
 const themeToggleBtn = document.getElementById('theme-toggle');
 const themeIcon = document.querySelector('.theme-icon');
 
+// مدت انیمیشن (میلی‌ثانیه)
+const THEME_ANIM_DURATION = 1200;
+
 function applyTheme(theme) {
     const html = document.documentElement;
     html.setAttribute('data-theme', theme);
 
-    // به‌روزرسانی theme-color برای مرورگر موبایل
     const themeColorMeta = document.getElementById('theme-color-meta');
     if (themeColorMeta) {
         themeColorMeta.setAttribute('content', theme === 'dark' ? '#1C1C1C' : '#F5F5F5');
@@ -366,7 +368,6 @@ function applyTheme(theme) {
     localStorage.setItem('theme', theme);
 }
 
-// رندر مجدد بعد از پایان انیمیشن (جدا از applyTheme)
 function refreshAfterThemeChange() {
     renderAllMatches();
     initCountdown();
@@ -392,62 +393,70 @@ function loadTheme() {
 // --- محاسبه مختصات دکمه تم (گوشه بالا سمت راست) ---
 function getThemeOrigin() {
     const rect = themeToggleBtn.getBoundingClientRect();
-    const x = ((rect.left + rect.width / 2) / window.innerWidth) * 100;
-    const y = ((rect.top + rect.height / 2) / window.innerHeight) * 100;
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
     return { x, y };
 }
 
-// --- انیمیشن دایره‌ای تغییر تم (نرم‌تر) ---
+// --- انیمیشن تغییر تم با دایره بزرگ‌شونده (سبک و روان) ---
 function toggleThemeWithAnimation() {
     const html = document.documentElement;
     const currentTheme = html.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
     const { x, y } = getThemeOrigin();
-    html.style.setProperty('--theme-x', `${x}%`);
-    html.style.setProperty('--theme-y', `${y}%`);
+
+    // بزرگ‌ترین فاصله از نقطه کلیک تا گوشه صفحه = شعاع لازم
+    const maxDist = Math.max(
+        Math.hypot(x, y),
+        Math.hypot(window.innerWidth - x, y),
+        Math.hypot(x, window.innerHeight - y),
+        Math.hypot(window.innerWidth - x, window.innerHeight - y)
+    );
 
     // کاهش بار رندر در طول انیمیشن
     html.classList.add('theme-animating');
 
     // چرخش آیکون
-    themeIcon.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+    themeIcon.style.transition = `transform ${THEME_ANIM_DURATION}ms cubic-bezier(0.4, 0, 0.2, 1)`;
     themeIcon.style.transform = 'rotate(360deg)';
     setTimeout(() => {
         themeIcon.style.transition = 'none';
         themeIcon.style.transform = 'rotate(0deg)';
-    }, 600);
+    }, THEME_ANIM_DURATION);
 
-    // استفاده از View Transitions API در صورت پشتیبانی
-    if (document.startViewTransition) {
-        const transition = document.startViewTransition(() => {
-            applyTheme(newTheme);
-        });
-        transition.finished.finally(() => {
-            html.classList.remove('theme-animating');
-            refreshAfterThemeChange();
-        });
-        return;
-    }
+    // ساخت دایره روی صفحه (رنگ تم جدید)
+    const circle = document.createElement('div');
+    circle.className = 'theme-circle-reveal';
+    circle.style.background = newTheme === 'dark' ? '#1C1C1C' : '#F5F5F5';
+    circle.style.left = `${x}px`;
+    circle.style.top = `${y}px`;
+    circle.style.width = `${maxDist * 2}px`;
+    circle.style.height = `${maxDist * 2}px`;
+    circle.style.marginLeft = `${-maxDist}px`;
+    circle.style.marginTop = `${-maxDist}px`;
+    circle.style.transform = 'scale(0)';
+    circle.style.opacity = '1';
+    document.body.appendChild(circle);
 
-    // Fallback برای مرورگرهای قدیمی
+    // اعمال تم جدید در همان لحظه (زیر دایره دیده نمی‌شود)
     applyTheme(newTheme);
-    const overlay = document.createElement('div');
-    overlay.className = 'theme-fallback-overlay';
-    overlay.style.background = newTheme === 'dark' ? '#1C1C1C' : '#F5F5F5';
-    overlay.style.setProperty('--theme-x', `${x}%`);
-    overlay.style.setProperty('--theme-y', `${y}%`);
-    document.body.appendChild(overlay);
 
+    // شروع انیمیشن بزرگ شدن دایره (transform روی GPU = روان)
     requestAnimationFrame(() => {
-        overlay.classList.add('animate');
+        requestAnimationFrame(() => {
+            circle.style.transition = `transform ${THEME_ANIM_DURATION}ms cubic-bezier(0.22, 1, 0.36, 1), opacity ${THEME_ANIM_DURATION}ms ease-out`;
+            circle.style.transform = 'scale(1)';
+            circle.style.opacity = '0';
+        });
     });
 
+    // پایان: حذف دایره و رندر مجدد
     setTimeout(() => {
-        overlay.remove();
+        circle.remove();
         html.classList.remove('theme-animating');
         refreshAfterThemeChange();
-    }, 950);
+    }, THEME_ANIM_DURATION + 50);
 }
 
 themeToggleBtn.addEventListener('click', toggleThemeWithAnimation);
