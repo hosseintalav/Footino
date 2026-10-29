@@ -130,7 +130,12 @@ function renderAllMatches() {
     });
 
     if (filteredMatches.length === 0) {
-        matchListContainer.innerHTML = '<p style="text-align:center; color:#888; margin-top:50px;">هیچ مسابقه‌ای برای نمایش وجود ندارد.</p>';
+        matchListContainer.innerHTML = `
+            <div class="empty-state">
+                <p class="empty-state-text">فعلاً مسابقه‌ای نیست، به‌زودی برگرد!</p>
+                <img class="empty-state-icon" src="assets/no-match-logo.png" alt="بدون مسابقه">
+            </div>
+        `;
         return;
     }
 
@@ -346,13 +351,20 @@ const themeIcon = document.querySelector('.theme-icon');
 function applyTheme(theme) {
     const html = document.documentElement;
     html.setAttribute('data-theme', theme);
+
+    // به‌روزرسانی theme-color برای مرورگر موبایل
+    const themeColorMeta = document.getElementById('theme-color-meta');
+    if (themeColorMeta) {
+        themeColorMeta.setAttribute('content', theme === 'dark' ? '#1C1C1C' : '#F5F5F5');
+    }
+
     if (theme === 'dark') {
         themeIcon.className = 'fas fa-sun theme-icon';
     } else {
         themeIcon.className = 'fas fa-moon theme-icon';
     }
     localStorage.setItem('theme', theme);
-    
+
     // رندر مجدد برای به‌روزرسانی لوگوها
     renderAllMatches();
     initCountdown();
@@ -360,20 +372,76 @@ function applyTheme(theme) {
 
 function loadTheme() {
     const savedTheme = localStorage.getItem('theme');
-    applyTheme(savedTheme || 'dark');
+    const theme = savedTheme || 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+
+    const themeColorMeta = document.getElementById('theme-color-meta');
+    if (themeColorMeta) {
+        themeColorMeta.setAttribute('content', theme === 'dark' ? '#1C1C1C' : '#F5F5F5');
+    }
+
+    if (theme === 'dark') {
+        themeIcon.className = 'fas fa-sun theme-icon';
+    } else {
+        themeIcon.className = 'fas fa-moon theme-icon';
+    }
 }
 
-function toggleTheme() {
+// --- محاسبه مختصات دکمه تم (گوشه بالا سمت راست) ---
+function getThemeOrigin() {
+    const rect = themeToggleBtn.getBoundingClientRect();
+    const x = ((rect.left + rect.width / 2) / window.innerWidth) * 100;
+    const y = ((rect.top + rect.height / 2) / window.innerHeight) * 100;
+    return { x, y };
+}
+
+// --- انیمیشن دایره‌ای تغییر تم ---
+function toggleThemeWithAnimation() {
     const html = document.documentElement;
     const currentTheme = html.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    applyTheme(newTheme);
+
+    const { x, y } = getThemeOrigin();
+    html.style.setProperty('--theme-x', `${x}%`);
+    html.style.setProperty('--theme-y', `${y}%`);
+
+    // چرخش آیکون
+    themeIcon.style.transition = 'transform 0.4s ease';
     themeIcon.style.transform = 'rotate(360deg)';
-    setTimeout(() => { themeIcon.style.transition = 'none'; }, 300);
-    setTimeout(() => { themeIcon.style.transition = 'transform 0.4s ease'; }, 350);
+    setTimeout(() => {
+        themeIcon.style.transition = 'none';
+        themeIcon.style.transform = 'rotate(0deg)';
+    }, 400);
+
+    // استفاده از View Transitions API در صورت پشتیبانی
+    if (document.startViewTransition) {
+        document.startViewTransition(() => {
+            applyTheme(newTheme);
+        });
+        return;
+    }
+
+    // Fallback برای مرورگرهای قدیمی
+    applyTheme(newTheme);
+    const overlay = document.createElement('div');
+    overlay.className = 'theme-fallback-overlay';
+    overlay.style.background = newTheme === 'dark' ? '#1C1C1C' : '#F5F5F5';
+    overlay.style.setProperty('--theme-x', `${x}%`);
+    overlay.style.setProperty('--theme-y', `${y}%`);
+    overlay.style.opacity = '0';
+    document.body.appendChild(overlay);
+
+    requestAnimationFrame(() => {
+        overlay.style.opacity = '1';
+        overlay.classList.add('animate');
+    });
+
+    setTimeout(() => {
+        overlay.remove();
+    }, 650);
 }
 
-themeToggleBtn.addEventListener('click', toggleTheme);
+themeToggleBtn.addEventListener('click', toggleThemeWithAnimation);
 
 // --- ۵. مدیریت مودال ---
 const contactBtn = document.getElementById('contact-btn');
