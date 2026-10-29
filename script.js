@@ -364,8 +364,10 @@ function applyTheme(theme) {
         themeIcon.className = 'fas fa-moon theme-icon';
     }
     localStorage.setItem('theme', theme);
+}
 
-    // رندر مجدد برای به‌روزرسانی لوگوها
+// رندر مجدد بعد از پایان انیمیشن (جدا از applyTheme)
+function refreshAfterThemeChange() {
     renderAllMatches();
     initCountdown();
 }
@@ -395,7 +397,7 @@ function getThemeOrigin() {
     return { x, y };
 }
 
-// --- انیمیشن دایره‌ای تغییر تم ---
+// --- انیمیشن دایره‌ای تغییر تم (نرم‌تر) ---
 function toggleThemeWithAnimation() {
     const html = document.documentElement;
     const currentTheme = html.getAttribute('data-theme');
@@ -405,18 +407,25 @@ function toggleThemeWithAnimation() {
     html.style.setProperty('--theme-x', `${x}%`);
     html.style.setProperty('--theme-y', `${y}%`);
 
+    // کاهش بار رندر در طول انیمیشن
+    html.classList.add('theme-animating');
+
     // چرخش آیکون
-    themeIcon.style.transition = 'transform 0.4s ease';
+    themeIcon.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
     themeIcon.style.transform = 'rotate(360deg)';
     setTimeout(() => {
         themeIcon.style.transition = 'none';
         themeIcon.style.transform = 'rotate(0deg)';
-    }, 400);
+    }, 600);
 
     // استفاده از View Transitions API در صورت پشتیبانی
     if (document.startViewTransition) {
-        document.startViewTransition(() => {
+        const transition = document.startViewTransition(() => {
             applyTheme(newTheme);
+        });
+        transition.finished.finally(() => {
+            html.classList.remove('theme-animating');
+            refreshAfterThemeChange();
         });
         return;
     }
@@ -428,17 +437,17 @@ function toggleThemeWithAnimation() {
     overlay.style.background = newTheme === 'dark' ? '#1C1C1C' : '#F5F5F5';
     overlay.style.setProperty('--theme-x', `${x}%`);
     overlay.style.setProperty('--theme-y', `${y}%`);
-    overlay.style.opacity = '0';
     document.body.appendChild(overlay);
 
     requestAnimationFrame(() => {
-        overlay.style.opacity = '1';
         overlay.classList.add('animate');
     });
 
     setTimeout(() => {
         overlay.remove();
-    }, 650);
+        html.classList.remove('theme-animating');
+        refreshAfterThemeChange();
+    }, 950);
 }
 
 themeToggleBtn.addEventListener('click', toggleThemeWithAnimation);
