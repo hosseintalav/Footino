@@ -101,5 +101,17 @@
     "team2Image": "assets/logo/saudi-pro-league/al-ittihad.png",
     "league": "لیگ حرفه‌ای عربستان",
     "isClub": true
+  },
+  {
+    "date": "2026-10-29",
+    "time": "19:25",
+    "team1": "منچستر سیتی",
+    "team1Image": "assets/logo/premier-league/manchester-city.png",
+    "team2": "رئال مادرید",
+    "team2Image": "assets/logo/laliga/real-madrid.png",
+    "league": "تست",
+    "isClub": true,
+    "countdown": true,
+    "notify": true
   }
 ]
