@@ -95,13 +95,11 @@ body {
     background-size: 100% 100%;
     background-position: center;
     filter: var(--header-blur-filter);
-    /* بزرگ کردن کمی برای پنهان کردن حاشیه بلور داخلی لبه‌ها */
     transform: scale(1.08);
     transform-origin: center;
     transition: filter var(--transition-duration);
 }
 
-/* لایه رنگی روی بلور برای تم روشن */
 .header-bg-blur::after {
     content: '';
     position: absolute;
@@ -630,7 +628,6 @@ body {
    ویژگی‌های اختصاصی مسابقات باشگاهی
    =================================================== */
 
-/* افزایش ابعاد کادر لوگوهای باشگاهی برای برجستگی بیشتر */
 .flag-wrapper.is-club {
     width: 40px;
     height: 40px;
@@ -641,7 +638,6 @@ body {
     height: 44px;
 }
 
-/* حذف فرم دایره‌ای روی تصویر اصلی لوگوها */
 .flag-wrapper.is-club .flag-front,
 .cd-flag-wrapper.is-club .cd-flag-front {
     border-radius: 0 !important;
@@ -650,14 +646,12 @@ body {
     border: none !important;
 }
 
-/* نگهداری ساختار دایره‌ای و تاری (blur) پس‌زمینه تصویر */
 .flag-wrapper.is-club .flag-backdrop,
 .cd-flag-wrapper.is-club .cd-flag-backdrop {
     border-radius: 50% !important;
     display: block !important;
 }
 
-/* کنترل رسپانسیو ابعاد کادر لوگوی باشگاهی روی گوشی‌های موبایل */
 @media (max-width: 480px) {
     .flag-wrapper.is-club {
         width: 34px;
@@ -670,7 +664,7 @@ body {
 }
 
 /* ===================================================
-   استایل هایلایت برای کارت مسابقه هدف (اسکرول از شمارش معکوس)
+   استایل هایلایت برای کارت مسابقه هدف
    =================================================== */
 .match-item.highlight-match {
     animation: highlightPulse 0.3s ease 1;
@@ -692,65 +686,18 @@ body {
 }
 
 /* ===================================================
-   انیمیشن تغییر تم دایره‌ای (Circular Reveal)
+   انیمیشن تغییر تم دایره‌ای (سبک و روان با transform)
    =================================================== */
 
-/* View Transition API - انیمیشن دایره‌ای از گوشه بالا سمت راست */
-::view-transition-old(root),
-::view-transition-new(root) {
-    animation: none;
-    mix-blend-mode: normal;
-}
-
-::view-transition-old(root) {
-    z-index: 1;
-}
-
-::view-transition-new(root) {
-    z-index: 9999;
-    animation: theme-circle-reveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-@keyframes theme-circle-reveal {
-    from {
-        clip-path: circle(0% at var(--theme-x, 100%) var(--theme-y, 0%));
-    }
-    to {
-        clip-path: circle(150% at var(--theme-x, 100%) var(--theme-y, 0%));
-    }
-}
-
-/* Fallback برای مرورگرهای بدون View Transitions API */
-.theme-fallback-overlay {
+/* دایره بزرگ‌شونده روی صفحه — فقط transform و opacity (روی GPU) */
+.theme-circle-reveal {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
-    clip-path: circle(0% at var(--theme-x, 100%) var(--theme-y, 0%));
-}
-
-.theme-fallback-overlay.animate {
-    animation: theme-circle-fallback 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-@keyframes theme-circle-fallback {
-    from {
-        clip-path: circle(0% at var(--theme-x, 100%) var(--theme-y, 0%));
-    }
-    to {
-        clip-path: circle(150% at var(--theme-x, 100%) var(--theme-y, 0%));
-    }
-}
-
-/* حذف موقت افکت‌های سنگین هنگام انیمیشن تم */
-html.theme-animating .countdown-inner,
-html.theme-animating .modal-content,
-html.theme-animating .scroll-top-btn {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
+    will-change: transform, opacity;
+    transform: scale(0);
+    opacity: 1;
 }
 
 /* ===================================================
