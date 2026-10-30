@@ -113,5 +113,73 @@
     "isClub": true,
     "countdown": true,
     "notify": true
+  },
+  {
+    "date": "2026-10-31",
+    "time": "16:30",
+    "team1": "لوانته",
+    "team1Image": "assets/logo/laliga/levante.png",
+    "team2": "اتلتیکو مادرید",
+    "team2Image": "assets/logo/laliga/atletico-madrid.png",
+    "league": "لالیگا اسپانیا",
+    "isClub": true
+  },
+  {
+    "date": "2026-10-31",
+    "time": "23:30",
+    "team1": "بارسلونا",
+    "team1Image": "assets/logo/laliga/barcelona.png",
+    "team2": "آلاوس",
+    "team2Image": "assets/logo/laliga/alaves.png",
+    "league": "لالیگا اسپانیا",
+    "isClub": true,
+    "countdown": true,
+    "notify": true
+  },
+  {
+    "date": "2026-10-31",
+    "time": "16:00",
+    "team1": "چلسی",
+    "team1Image": "assets/logo/premier-league/chelsea.png",
+    "team2": "منچستر یونایتد",
+    "team2Image": "assets/logo/premier-league/manchester-united.png",
+    "league": "لیگ برتر انگلیس",
+    "isClub": true,
+    "countdown": true,
+    "notify": true
+  },
+  {
+    "date": "2026-10-31",
+    "time": "18:30",
+    "team1": "منچستر سیتی",
+    "team1Image": "assets/logo/premier-league/manchester-city.png",
+    "team2": "برایتون",
+    "team2Image": "assets/logo/premier-league/brighton-&-hove-albion.png",
+    "league": "لیگ برتر انگلیس",
+    "isClub": true
+  },
+  {
+    "date": "2026-10-31",
+    "time": "23:15",
+    "team1": "میلان",
+    "team1Image": "assets/logo/serie-a/milan.png",
+    "team2": "اینتر میلان",
+    "team2Image": "assets/logo/serie-a/inter.png",
+    "league": "سری آ ایتالیا",
+    "isClub": true,
+    "countdown": true,
+    "notify": true
+  },
+  {
+    "date": "2026-10-31",
+    "time": "21:00",
+    "team1": "بایرن مونیخ",
+    "team1Image": "assets/logo/bundesliga/bayern-munich.png",
+    "team2": "دورتموند",
+    "team2Image": "assets/logo/bundesliga/dortmund.png",
+    "league": "بوندسلیگا",
+    "isClub": true,
+    "countdown": true,
+    "notify": true
   }
 ]
