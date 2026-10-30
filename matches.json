@@ -124,18 +124,7 @@
     "league": "لالیگا اسپانیا",
     "isClub": true
   },
-  {
-    "date": "2026-10-31",
-    "time": "23:30",
-    "team1": "بارسلونا",
-    "team1Image": "assets/logo/laliga/barcelona.png",
-    "team2": "آلاوس",
-    "team2Image": "assets/logo/laliga/alaves.png",
-    "league": "لالیگا اسپانیا",
-    "isClub": true,
-    "countdown": true,
-    "notify": true
-  },
+
   {
     "date": "2026-10-31",
     "time": "16:00",
@@ -158,6 +147,18 @@
     "league": "لیگ برتر انگلیس",
     "isClub": true
   },
+    {
+    "date": "2026-10-31",
+    "time": "21:00",
+    "team1": "بایرن مونیخ",
+    "team1Image": "assets/logo/bundesliga/bayern-munich.png",
+    "team2": "دورتموند",
+    "team2Image": "assets/logo/bundesliga/dortmund.png",
+    "league": "بوندسلیگا",
+    "isClub": true,
+    "countdown": true,
+    "notify": true
+  }،
   {
     "date": "2026-10-31",
     "time": "23:15",
@@ -169,17 +170,20 @@
     "isClub": true,
     "countdown": true,
     "notify": true
-  },
+  }،
   {
     "date": "2026-10-31",
-    "time": "21:00",
-    "team1": "بایرن مونیخ",
-    "team1Image": "assets/logo/bundesliga/bayern-munich.png",
-    "team2": "دورتموند",
-    "team2Image": "assets/logo/bundesliga/dortmund.png",
-    "league": "بوندسلیگا",
+    "time": "23:30",
+    "team1": "بارسلونا",
+    "team1Image": "assets/logo/laliga/barcelona.png",
+    "team2": "آلاوس",
+    "team2Image": "assets/logo/laliga/alaves.png",
+    "league": "لالیگا اسپانیا",
     "isClub": true,
     "countdown": true,
     "notify": true
-  }
+  },
+
+
+    
 ]
