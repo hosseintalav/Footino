@@ -40,22 +40,24 @@ function getMatchId(match) {
     return `${match.date}_${match.time}_${match.team1}_${match.team2}`;
 }
 
-// --- تابع برای دریافت لوگوی پیش‌فرض مناسب با تم ---
+// --- لوگوی پیش‌فرض بر اساس تم فعلی ---
+// تم تاریک  → assets/logo/no-image.png  (سفید)
+// تم روشن   → assets/logo/no-image-black.png (سیاه)
 function getDefaultLogo() {
     const theme = document.documentElement.getAttribute('data-theme');
     if (theme === 'light') {
         return 'assets/logo/no-image-black.png';
-    } else {
-        return 'assets/logo/no-image.png';
     }
+    return 'assets/logo/no-image.png';
 }
 
-// --- تابع بررسی اینکه آیا تصویر لوگوی پیش‌فرض است ---
+// --- آیا این مسیر یکی از لوگوهای پیش‌فرض است؟ ---
 function isDefaultLogoImage(src) {
-    return src && (src.includes('no-image.png') || src.includes('no-image-black.png'));
+    if (!src) return false;
+    return src.includes('no-image.png') || src.includes('no-image-black.png');
 }
 
-// --- تابع دریافت لوگوی مناسب برای هر تیم ---
+// --- لوگوی مناسب برای هر تیم ---
 function getTeamLogo(logoPath) {
     if (isDefaultLogoImage(logoPath)) {
         return getDefaultLogo();
@@ -82,7 +84,12 @@ async function loadMatches() {
         }, 10000);
         
     } catch (error) {
-        matchListContainer.innerHTML = '<p style="color:red; text-align:center; margin-top:50px;">خطا در بارگذاری فایل مسابقات!</p>';
+        matchListContainer.innerHTML = `
+            <div class="empty-state">
+                <p class="empty-state-text">خطا در بارگذاری فایل مسابقات!</p>
+                <img class="empty-state-icon" src="assets/no-match-logo.png" alt="خطا در بارگذاری">
+            </div>
+        `;
         console.error(error);
     }
 }
@@ -126,7 +133,7 @@ function renderAllMatches() {
     const filteredMatches = allMatches.filter(match => {
         const matchTime = getMatchDateTime(match);
         const timeDiff = now - matchTime;
-        return timeDiff < 2 * 60 * 60 * 1000; 
+        return timeDiff < 130 * 60 * 1000; 
     });
 
     if (filteredMatches.length === 0) {
@@ -160,7 +167,7 @@ function renderAllMatches() {
             div.dataset.matchId = matchId;
 
             const matchTime = getMatchDateTime(match);
-            const isLive = now >= matchTime && (now - matchTime) < 2 * 60 * 60 * 1000;
+            const isLive = now >= matchTime && (now - matchTime) < 130 * 60 * 1000;
             
             const centerContent = isLive 
                 ? `<span class="live-status"><i class="fas fa-circle" style="font-size: 7px;"></i> درحال پخش</span>`
@@ -168,7 +175,7 @@ function renderAllMatches() {
 
             const isClubClass = match.isClub ? 'is-club' : '';
 
-            // دریافت لوگوی مناسب برای هر تیم
+            // لوگوی مناسب تم فعلی برای هر تیم
             const team1Logo = getTeamLogo(match.team1Image);
             const team2Logo = getTeamLogo(match.team2Image);
 
@@ -178,7 +185,7 @@ function renderAllMatches() {
                     <div class="flag-wrapper ${isClubClass}">
                         <div class="flag-backdrop" style="background-image: url('${team1Logo}');" onerror="this.style.display='none'"></div>
                         <img class="flag-front" src="${team1Logo}" alt="${match.team1}" 
-                             onerror="this.src='${defaultLogo}';">
+                             onerror="if(!this.dataset.fb){this.dataset.fb='1'; this.src='${defaultLogo}';} else {this.style.visibility='hidden';}">
                     </div>
                 </div>
                 
@@ -191,7 +198,7 @@ function renderAllMatches() {
                     <div class="flag-wrapper ${isClubClass}">
                         <div class="flag-backdrop" style="background-image: url('${team2Logo}');" onerror="this.style.display='none'"></div>
                         <img class="flag-front" src="${team2Logo}" alt="${match.team2}" 
-                             onerror="this.src='${defaultLogo}';">
+                             onerror="if(!this.dataset.fb){this.dataset.fb='1'; this.src='${defaultLogo}';} else {this.style.visibility='hidden';}">
                     </div>
                     <span class="team-name">${match.team2}</span>
                 </div>
@@ -348,9 +355,6 @@ function handleCountdownClick() {
 const themeToggleBtn = document.getElementById('theme-toggle');
 const themeIcon = document.querySelector('.theme-icon');
 
-// مدت انیمیشن (میلی‌ثانیه)
-const THEME_ANIM_DURATION = 1200;
-
 function applyTheme(theme) {
     const html = document.documentElement;
     html.setAttribute('data-theme', theme);
@@ -390,73 +394,28 @@ function loadTheme() {
     }
 }
 
-// --- محاسبه مختصات دکمه تم (گوشه بالا سمت راست) ---
-function getThemeOrigin() {
-    const rect = themeToggleBtn.getBoundingClientRect();
-    const x = rect.left + rect.width / 2;
-    const y = rect.top + rect.height / 2;
-    return { x, y };
-}
-
-// --- انیمیشن تغییر تم با دایره بزرگ‌شونده (سبک و روان) ---
+// --- تغییر تم با انیمیشن نرم و ساده (چرخش ملایم آیکون) ---
 function toggleThemeWithAnimation() {
     const html = document.documentElement;
     const currentTheme = html.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
-    const { x, y } = getThemeOrigin();
+    // چرخش ملایم آیکون
+    themeIcon.style.transition = 'transform 0.4s ease';
+    themeIcon.style.transform = 'rotate(180deg)';
 
-    // بزرگ‌ترین فاصله از نقطه کلیک تا گوشه صفحه = شعاع لازم
-    const maxDist = Math.max(
-        Math.hypot(x, y),
-        Math.hypot(window.innerWidth - x, y),
-        Math.hypot(x, window.innerHeight - y),
-        Math.hypot(window.innerWidth - x, window.innerHeight - y)
-    );
-
-    // کاهش بار رندر در طول انیمیشن
-    html.classList.add('theme-animating');
-
-    // چرخش آیکون
-    themeIcon.style.transition = `transform ${THEME_ANIM_DURATION}ms cubic-bezier(0.4, 0, 0.2, 1)`;
-    themeIcon.style.transform = 'rotate(360deg)';
     setTimeout(() => {
-        themeIcon.style.transition = 'none';
-        themeIcon.style.transform = 'rotate(0deg)';
-    }, THEME_ANIM_DURATION);
-
-    // ساخت دایره روی صفحه (رنگ تم جدید)
-    const circle = document.createElement('div');
-    circle.className = 'theme-circle-reveal';
-    circle.style.background = newTheme === 'dark' ? '#1C1C1C' : '#F5F5F5';
-    circle.style.left = `${x}px`;
-    circle.style.top = `${y}px`;
-    circle.style.width = `${maxDist * 2}px`;
-    circle.style.height = `${maxDist * 2}px`;
-    circle.style.marginLeft = `${-maxDist}px`;
-    circle.style.marginTop = `${-maxDist}px`;
-    circle.style.transform = 'scale(0)';
-    circle.style.opacity = '1';
-    document.body.appendChild(circle);
-
-    // اعمال تم جدید در همان لحظه (زیر دایره دیده نمی‌شود)
-    applyTheme(newTheme);
-
-    // شروع انیمیشن بزرگ شدن دایره (transform روی GPU = روان)
-    requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-            circle.style.transition = `transform ${THEME_ANIM_DURATION}ms cubic-bezier(0.22, 1, 0.36, 1), opacity ${THEME_ANIM_DURATION}ms ease-out`;
-            circle.style.transform = 'scale(1)';
-            circle.style.opacity = '0';
-        });
-    });
-
-    // پایان: حذف دایره و رندر مجدد
-    setTimeout(() => {
-        circle.remove();
-        html.classList.remove('theme-animating');
+        // تعویض تم + رندر مجدد لوگوها با تم جدید
+        applyTheme(newTheme);
         refreshAfterThemeChange();
-    }, THEME_ANIM_DURATION + 50);
+
+        // برگرداندن آیکون
+        themeIcon.style.transform = 'rotate(0deg)';
+
+        setTimeout(() => {
+            themeIcon.style.transition = 'none';
+        }, 400);
+    }, 200);
 }
 
 themeToggleBtn.addEventListener('click', toggleThemeWithAnimation);
