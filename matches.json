@@ -1,14 +1,22 @@
 [
   {
-    "date": "2026-11-08",
-    "time": "23:30",
-    "team1": "بارسلونا",
-    "team1Image": "assets/logo/laliga/barcelona.png",
-    "team2": "اتلتیکو مادرید",
-    "team2Image": "assets/logo/laliga/atletico-madrid.png",
-    "league": "لالیگا",
-    "isClub": true,
-    "countdown": true,
-    "notify": true
+    "date": "2026-11-19",
+    "time": "22:30",
+    "team1": "انگلستان",
+    "team1Image": "https://flagcdn.com/gb-eng.svg",
+    "team2": "اسپانیا",
+    "team2Image": "https://flagcdn.com/es.svg",
+    "league": "لیگ ملت‌های اروپا",
+    "countdown": true
+  },
+  {
+    "date": "2026-11-19",
+    "time": "22:30",
+    "team1": "ایران",
+    "team1Image": "https://flagcdn.com/ir.svg",
+    "team2": "عراق",
+    "team2Image": "https://flagcdn.com/iq.svg",
+    "league": "دوستانه ملی",
+    "countdown": true
   }
 ]
